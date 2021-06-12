@@ -1,0 +1,146 @@
+/* #header{
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    text-align: center;
+}
+#header div{
+    line-height: 45px;
+    font-size: 16px;
+    font-family: "黑体";
+}
+#header span{
+    line-height: 45px;
+    display: inline-block;
+} */
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+#myhead{
+    width: 100%;
+    height: 150px;
+    background: url(../images/user_bg.png) no-repeat;
+    box-sizing: border-box;
+
+}
+#myhead .user{
+    height: 70px;
+    line-height: 70px;
+    padding: 0 5%;
+}
+#myhead .user img{
+    border-radius: 50%;   
+}
+#myhead .username{
+    font-size: 18px;
+    font-family: "黑体";
+    display: inline-block;
+    margin-left: 10px;
+}
+#myhead .user .members{
+    display: inline-block;
+}
+#myhead .user .members a{
+    font-size: 12px;
+    border-radius: 9px;
+    padding: 0 10px 0 10px;
+    background: #ffe4dc;
+}
+#myhead ul{
+    width: 100%;
+    height: 50px;
+}
+#myhead ul li{
+    width: 33%;
+    height: 70px;
+    float: left;
+    text-align: center;
+}
+#myhead ul li span{
+    display: block;
+    font-size: 12px;
+    font-family: "黑体";
+    margin-top: 5px;
+}
+.box{
+    margin: 0 15px;
+}
+#orders{
+    width: 100%;
+    height: 125px;
+    background-color: #fff;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.head{
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px solid #999;
+}
+#orders span:nth-child(1){
+    font-size: 14px;
+    color: #333;
+    margin: 10px 20px;
+}
+#orders span:nth-child(2){
+    font-size: 12px;
+    color: #999;
+    margin: 10px 20px;
+}
+#orders ul li{
+    width: 20%;
+    height: 76px;
+    overflow: hidden;
+    float: right;
+    text-align: center;
+    padding: 10px 0;
+}
+#orders ul li div{
+    color: #ff5000;
+    font-size: 25px;
+}
+#orders ul li i{
+    font-size: 12px;
+    color: #666;
+}
+#tools{
+    width: 100%;
+    height: 216px;
+    background-color: #fff;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#tools span:nth-child(1){
+    font-size: 14px;
+    color: #333;
+    margin: 10px 20px;
+}
+#tools span:nth-child(2){
+    font-size: 12px;
+    color: #999;
+    margin: 10px 20px;
+}
+#tools ul{
+    margin:10px 10px;
+}
+#tools ul li a{
+    width: 25%;
+    height: 76px;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+}
+#tools ul li img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: calc(50% - 20px);
+}
+#tools ul li i{
+    font-size: 12px;
+    color: #666;
+}

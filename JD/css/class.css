@@ -1,0 +1,43 @@
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.sideNav{
+    width: 100px;
+    /* height: 522px; */
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #ff5000;
+    box-sizing: border-box; /*使边框沿着盒模型*/
+    border-top: none;
+    padding-top: 5px;
+}
+.sideNav li{
+    height: 32px;
+    line-height: 32px;
+    padding-left: 15px;
+    color: #999;
+    font-size: 14px;
+    transition: background-color 0.3s; /*背景色过渡时间*/
+}
+.sideNav li a{
+    font-size: 14px;
+    color: #666;
+}
+.sideNav li span{
+    font-size: 12px;
+    margin-right: 5px;
+}
+.sideNav li:hover{
+    background: #ffe4dc;
+    color: #f50;
+}
+.sideNav li:hover a{
+    color: #f50;
+}
+.sideNav a:hover{
+    text-decoration: underline;
+}

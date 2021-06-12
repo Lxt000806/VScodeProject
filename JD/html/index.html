@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/art-template.js"></script>
+    <script src="../js/data.js"></script>  
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="head">
+        <div id="headSearch">
+            <form action="#">
+                <input type="text">
+                <div class="placeholder">
+                    <i class="iconfont">&#xe612;</i>
+                    <span>网红裤腰带 洋气 国际范 9.9包邮</span>
+                </div>
+                <span class="iconfont imgSearch">&#xe602;</span>
+            </form>          
+        </div>
+    </div>
+            
+    <div id="slideshow">
+        <div id="slide"></div>
+        <div id="navDiv">
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+    </div>
+    
+
+    <!-- 图标 -->
+    <div id="icon">
+        <ul>
+            <li><a href="#"><img src="../images/icon1.png" alt=""><span>京东超市</span></a></li>
+            <li><a href="#"><img src="../images/icon2.png" alt=""><span>数码电器</span></a></li>
+            <li><a href="#"><img src="../images/icon3.png" alt=""><span>京东服饰</span></a></li>
+            <li><a href="#"><img src="../images/icon4.png" alt=""><span>京东生鲜</span></a></li>
+            <li><a href="#"><img src="../images/icon5.png" alt=""><span>京东到家</span></a></li>
+            <li><a href="#"><img src="../images/icon6.png" alt=""><span>充值缴费</span></a></li>
+            <li><a href="#"><img src="../images/icon7.png" alt=""><span>9.9元拼</span></a></li>
+            <li><a href="#"><img src="../images/icon8.png" alt=""><span>领券</span></a></li>
+            <li><a href="#"><img src="../images/icon9.png" alt=""><span>领金贴</span></a></li>
+            <li><a href="#"><img src="../images/icon11.png" alt=""><span>PLUS会员</span></a></li>
+        </ul>
+    </div>
+
+    <!-- 内容 -->
+    <div id="content">
+        <div class="one">
+            <ul>
+                <li><a href="#"><p>正品直邮</p><img src="../images/goods1.jpg" alt=""></a></li>
+                <li><a href="#"><strong>来电好货</strong><p>3C大放价</p><img src="../images/goods2.jpg" alt=""></a></li>
+                <li><a href="#"><strong>国潮风尚</strong><p>国货正当时</p><img src="../images/goods3.jpg" alt=""></a></li>
+                <li><a href="#"><p>都是你爱的</p><img src="../images/goods4.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="two"></div>
+    </div>
+
+</body>
+<script id="temp" type="text/html">
+    <a href="{{ h5GoodUrl }}" class="box">
+        <div>
+            <img src="{{ image }}" alt="">
+            <p>
+                {{each props as value}}
+                <span>{{value}}</span>
+                {{/each}}
+            </p>
+            <span>￥{{price}}</span>
+            <span class="fr">{{collectNum}}点赞</span>
+        </div>
+    </a>
+</script>
+<script>
+    var htmlStr = ''
+    for(var i=0;i<list.length;i++){
+        htmlStr += template('temp',list[i])
+    }
+
+    document.querySelector(".two").innerHTML = htmlStr
+</script>
+<script>
+    let arr = document.querySelectorAll("#navDiv a")
+    let num=0
+    let timer=setInterval(lunbo,2000)
+
+    function $(e){
+       return document.querySelector(e)
+   }
+   
+   console.log(arr)
+    //自动轮播换图
+    function lunbo(){
+        
+        $("#slide").style.background="url(../images/slide_0"+num+".jpg) no-repeat"
+        arr[num].style.backgroundColor = "white";  
+
+        if(num==0){//如果图片为第一张，将最后一张白点消除
+            arr[arr.length-1].style.backgroundColor = "";
+        }else if(num>=1){//将前面一张的白点消除
+            arr[num-1].style.backgroundColor = "";
+        }
+
+        num++
+        if(num>=arr.length){
+            num=0
+        }
+    }
+
+    /* onclick鼠标点击
+       onmouseover鼠标移入
+       onmouseout鼠标移出 
+    */
+    $("#slide").onmouseover=function(){
+        clearInterval(timer)
+    }
+    $("#slide").onmouseout=function(){
+      timer=setInterval(lunbo,2000)
+    }
+</script>
+</html>
