@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            border-radius: 50%;
+        }
+        #b{
+            width: 50px;
+            height: 30px;
+            border: none;
+            margin-top: 10px;
+        }
+        #b:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="a"></div>
+    <button id="b">按钮</button>
+</body>
+<script>
+
+    let mybox=document.querySelector("#a");
+    let mybtn=document.querySelector("#b");
+    let num=0
+    mybtn.onclick=function()
+    {
+        let myt1=setInterval(go,100)
+        function go(){
+            num+=40
+            mybox.style.marginLeft = num+"px"
+
+            if(num>=1000){
+                clearInterval(myt1)
+            }
+        }       
+    }
+
+    /**
+     * 1.js里面只有变量、数字、字符串
+     * 
+     * 2.
+     *  setInterval(方法，时间)  定时器
+     *  每隔一段时间调用该方法
+     * 
+     * 3.
+     *  clearInterval() 清除定时器
+     */
+</script>
+</html>

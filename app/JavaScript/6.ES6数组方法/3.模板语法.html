@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    //传统方法：
+/*    let div=document.createElement("div");
+    let ul=document.createElement("ul");
+    let li=document.createElement("li");
+    li.innerHTML="我的li";
+    ul.appendChild(li);
+    div.appendChild(ul);
+    document.body.appendChild(div)*/
+    let str=`
+        <div>
+            <ul>
+                <li>我的新的li</li>
+            </ul>
+        </div>
+    `;
+    document.body.innerHTML=str
+</script>
+</html>

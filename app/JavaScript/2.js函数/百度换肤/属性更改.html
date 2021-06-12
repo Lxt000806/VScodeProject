@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+        .dot
+        {
+            width: 100px;
+            height: 70px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: linear-gradient(blue,yellow)
+        }
+        button
+        {
+            margin-top: 100px;
+            margin-left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dot"></div>
+    <button>点击</button>
+</body>
+<script>
+    let timer
+    $("button").onclick=function(){
+        gogo($(".dot"),1000,"width")
+    }
+function $(e)
+    {
+      return document.querySelector(e)
+    } 
+</script>
+
+<script src="gogo.js"></script>
+</html>

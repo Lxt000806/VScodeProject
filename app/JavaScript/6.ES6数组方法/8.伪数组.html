@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</body>
+<script>
+    /* let mydiv=document.querySelectorAll("div")
+    mydiv.forEach(function(value){
+        console.log(value)
+    })
+ */
+    //伪数组：其实是object对象;对象不能使用foreach
+    // 后台给你的，一般都是伪数组
+    //伪数组格式：一个对象用{}来装
+    // {
+    //     "0":"div1",
+    //     "1":"div1",
+    //     "2":"div1",
+    //     "3":"div1",
+    //     "4":"div1",
+    //     "length":5
+    // }
+    
+    
+    let mydiv2=document.getElementsByTagName("div")
+    console.log(mydiv2.length) //其实是一个伪数组
+    let mydiv3=Array.from(mydiv2) //转换成数组
+    mydiv3.forEach(function(value){//数组才能用foreach循环
+        console.log(value)
+    })
+</script>
+</html>

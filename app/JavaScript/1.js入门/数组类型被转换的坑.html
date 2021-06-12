@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let a = [1,"a","b","c"]
+    let b = []
+    b = a[0]
+    console.log(b) //输出的b是一个数字
+
+    b[0]=a[0]
+    console.log(b) //保证类型一致，输出的是一个数组
+    /*
+    注意：js会强制类型转换，如果左边的是一个number，string，array
+         的类型，右边的变量类型会被转换
+    */
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //demo1
+    //非箭头函数的写法
+    var myf=function(x){
+        console.log(x)
+    }
+    myf("非箭头函数")
+    // 箭头函数的写法，在匿名函数中使用
+   var myf2= x=>console.log(x)
+   myf2("箭头函数")
+   //demo2 箭头函数在单行代码的时候可以省略return,多行不能省略return
+   var myf3=x=>x
+   console.log(myf3("这个是传入的参数"))
+
+   //demo3
+   var myf4= (x,y)=>
+   {
+       return x+y
+   }
+   console.log(myf4(3,5))
+
+   //demo4箭头函数的作用域
+   var obj = {
+    num: 1987,
+    getAge: function () {
+        var b = this.num; // 1987,this指向obj
+        var fn = function () {
+            return 2019 - this.num; // this就变为undefine
+        };
+        return fn();
+    }
+};
+console.log(obj.getAge())//最后结果为NAN
+
+//箭头函数的写法
+var obj = {
+    num: 1987,
+    getAge: function () {
+        var b = this.num; // 1987,this指向obj
+        var fn = ()=> {
+            return 2019 - this.num; // this保留指向obj
+        };
+        return fn();
+    }
+};
+console.log(obj.getAge())//最后结果number
+
+</script>
+</html>

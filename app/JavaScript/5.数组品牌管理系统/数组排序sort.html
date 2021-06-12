@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+let myarray=[1,2,3,4,5,10,11,21]
+/* sort 根据函数返回值进行排序
+返回值<0  从小大到排序
+返回值=0  不变
+返回值>0  从大到小排序 */
+// 如果有一个数组，我要随机乱序排序，怎么sort
+myarray.sort(function(a,b){
+    if(a<b)
+    {
+       return 1 
+    }
+    if(a==b)
+    {
+        return 0
+    }
+    if(a>b)
+    {
+        return -1
+    }
+})
+console.log(myarray)
+</script>
+</html>

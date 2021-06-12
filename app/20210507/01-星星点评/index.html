@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+
+        .content {
+            width: 520px;
+            height: 280px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .pic a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .pic a.current {
+            display: block;
+        }
+        .indicator {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        .indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border: 2px solid gainsboro;
+            border-radius: 50%;
+        }
+        .indicator span.active {
+            background-color: red;
+        }
+        .prev, .next {
+            width: 30px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: calc(140px - 25px);
+            line-height: 50px;
+            z-index: 999;
+            font-size: 30px;
+            color: ghostwhite;
+            /* 禁止用户选中指定内容 */
+            -webkit-user-select: none;
+        }
+        .prev {
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+        .next {
+            right: 0;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            text-align: right;
+        }
+        .prev:hover , .next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+        <span class="prev"> &lt; </span>
+
+        <div class="pic">
+            <a href="#" class="current"><img src="./1.jpg" alt=""></a>
+            <a href="#"><img src="./2.jpg" alt=""></a>
+            <a href="#"><img src="./3.jpg" alt=""></a>
+            <a href="#"><img src="./4.jpg" alt=""></a>
+            <a href="#"><img src="./5.jpg" alt=""></a>
+        </div>
+
+        <div class="indicator">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <span class="next"> &gt; </span>
+    </div>
+</body>
+<script>
+    // 记录图片的索引值，初始是第一张
+    var index = 0;
+
+    // 设置开启自动轮播
+    var timer = setInterval(nextImg,1000)
+
+    // 下一张的方法
+    function nextImg(){
+        index++;
+
+        if(index == $('.pic a').length){
+            index = 0
+        }
+        
+        showImg()
+    }
+
+    // 下一页的点击事件
+    $('.next').click(nextImg)
+
+
+
+    // 上一张的方法
+    function prevImg(){
+        index--;
+
+        if(index == -1){
+            index = $('.content .pic a').length - 1;
+        }
+        
+        showImg()
+    }
+
+    // 下一页的点击事件
+    $('.prev').click(prevImg)
+
+    
+    function showImg(){
+        // .eq(index) 根据索引值找到下一张图
+        // .show() 将该图显示出来
+        // .siblings() 找到除了该图的其他图
+        // .hide() 将其他图全部隐藏掉
+        $('.pic a').eq(index).show().siblings().hide()
+
+        $('.indicator span')
+        .eq(index).addClass('active')
+        .siblings().removeClass('active')
+    }
+
+    $('.indicator span').hover(function(){
+        console.log('鼠标移入了' + $(this).index())
+        index = $(this).index()
+        showImg()
+    })
+
+    $('.prev').hover(function(){
+        // 鼠标的移入事件
+        clearInterval(timer)
+    },function(){
+        // 鼠标的移除事件
+        timer = setInterval(nextImg,1000)
+    }) 
+
+    $('.next').hover(function(){
+        clearInterval(timer)
+    },function(){
+        // 鼠标的移除事件
+        timer = setInterval(nextImg,1000)
+    })
+</script>
+</html>

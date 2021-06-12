@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style type="text/css">
+  #dv{
+    width: 300px;
+    height:200px;
+    position: absolute;
+    left:300px;
+    top:100px;
+  }
+  .strengthLv0 {
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv1 {
+    background: red;
+    height: 6px;
+    width: 40px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv2 {
+    background: orange;
+    height: 6px;
+    width: 80px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+
+  .strengthLv3 {
+    background: green;
+    height: 6px;
+    width: 120px;
+    border: 1px solid #ccc;
+    padding: 2px;
+  }
+</style>
+<body>
+<div id="dv">
+  <label for="pwd">密码</label>
+  <!-- maxlength最大输入16个字符 -->
+  <input type="text" id="pwd" maxlength="16"> 
+  <div>
+    <em>密码强度：</em>
+    <em id="strength"></em>
+    <div id="strengthLevel" class="strengthLv0"></div>
+  </div>
+</div>
+
+<script>
+ pwd.onkeyup=function() //onkeyup 事件会在键盘按键被松开时发生。
+ {
+  if(this.value.length>=6)
+  {
+    strengthLevel.className="strengthLv"+getLv()
+  }
+ }
+ function getLv()
+ {
+    let num=0;
+    if(/\d+/.test(pwd.value)) 
+    {
+      num++
+    }
+    if(/[a-zA-Z]/.test(pwd.value))
+    {
+      num++
+    }
+    if(/\W/.test(pwd.value))
+    {
+      num++
+    }
+    return num
+ }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证密码强度</title>
+</head>
+<body>
+        <h2>账号注册</h2>
+        账号：<input type="text" id="loginName"> <br>
+        密码：<input type="text" id="passWord"> <br>
+        <button id="res">注册</button>
+</body>
+<script>
+    //1.账号要求由数字、英文或者下划线组成，不少于7位，不多于20位
+    //2.密码要求必须包含大小写字母和数字，且不能有特殊字符
+    let myBtn=document.querySelector("#res")
+    myBtn.addEventListener('click',checkStr)
+    function checkStr()
+    {
+       let loginName=document.querySelector("#loginName").value
+       let passWord=document.querySelector("#passWord").value
+       let loginRes=/^\w+{7,20}$/
+       let passRes=/^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$/
+       if(loginRes.test(loginName))
+       {
+           alert("账号不符合要求！")
+       }
+       
+    }
+</script>
+</html>

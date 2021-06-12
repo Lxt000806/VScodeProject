@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加品牌</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <label>
+                序号:
+                <input id="myid" type="text" class="form-control">
+            </label>
+
+            <label>
+                品牌:
+                <input id="myband" type="text" class="form-control">
+            </label>
+
+
+            <label>
+                库存:
+                <input id="mynum" type="text" class="form-control">
+            </label>
+
+            <input id="mybtn" type="button" value="添加" class="btn btn-primary">
+
+            <label>
+                搜索名称关键字：
+                <input type="text" class="form-control" id="search">
+            </label>
+            <input id="mysearch" type="button" value="搜索" class="btn btn-primary">
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>库存</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="mytbody">
+        <tr>
+            <td>测试序号</td>
+            <td>测试品牌</td>
+            <td>测试库存</td>
+            <td onclick="del()">测试删除</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    //数组的定义
+    let myArray=[
+        {
+            // 属性：属性值
+            "id":1,
+            "pinpai":"宝马",
+            "num":100
+        },
+        {
+            // 属性：属性值
+            "id":2,
+            "pinpai":"奔驰",
+            "num":1000
+        },
+        {
+            // 属性：属性值
+            "id":3,
+            "pinpai":"玛莎拉蒂",
+            "num":3
+        },
+        {
+            // 属性：属性值
+            "id":4,
+            "pinpai":"奇瑞qq",
+            "num":2999
+        },
+        {
+            // 属性：属性值
+            "id":5,
+            "pinpai":"宝时捷",
+            "num":2999
+        }
+
+    ];
+    //数组内容的添加
+    let mytbody=document.querySelector("#mytbody");
+    let mybtn=document.querySelector("#mybtn");
+    mybtn.onclick=function () {
+        let id=document.querySelector("#myid").value;
+        let pinpai=document.querySelector("#myband").value;
+        let stock=document.querySelector("#mynum").value;
+        myArray.push({
+            "id":id,
+            "pinpai":pinpai,
+            "num":stock
+        });
+        getInfo(myArray)
+    };
+    //数组的遍历，foreach
+    getInfo(myArray)
+    function getInfo(thearr)
+    {
+
+        mytbody.innerHTML="";
+        thearr.forEach(function(value,index,arr){
+            //循环了四次
+            let output=`
+             <tr>
+                <td>${value.id}</td>
+                <td>${value.pinpai}</td>
+                <td>${value.num}</td>
+                <td><a onclick="del(${index})">删除</a></td>
+            </tr>
+        `;
+            mytbody.innerHTML+=output
+        })
+    }
+
+    function del(receive_index)
+    {
+        myArray.splice(receive_index,1)
+        getInfo()
+    }
+
+    //
+    let mys=document.querySelector("#mysearch")
+    mys.onclick=function(){
+        let str=document.querySelector("#search").value;
+        let newArray=[];
+        myArray.forEach(function(value,index,arr){
+            if(value.pinpai.includes(str))
+            {
+                newArray.push(value)
+            }
+        })
+
+        getInfo(newArray)
+    }
+    //1、拿到搜索框的内容
+    //2.检测原来的数组myarray是否包括搜索框内容，  如果包括存入新的数组
+</script>
+</body>
+</html>

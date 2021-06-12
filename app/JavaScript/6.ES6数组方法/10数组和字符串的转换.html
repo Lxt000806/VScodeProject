@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .test{
+            width: 100px;
+            height: 100px;
+            background: red
+        }
+        .ch
+        {
+            width: 300px;
+            background: blue;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+  <div class="test"></div> 
+  <img id="a" src="1.jpg" alt="">
+  <button>点击添加样式</button> 
+</body>
+<script>
+
+    //字符串转数组
+    let string="a+b+c+d"
+    let a=string.split("+")
+    console.log(a)
+
+    //数组转字符串
+    let myarray=[1,2,3,4,5]
+    let s = myarray.join("%")
+    console.log(s)
+
+    let test=document.querySelector(".test")
+    test.classList.add("ch")  //增加样式
+    test.className = "ch"
+    test.classList.remove("ch")  //删除样式
+
+    let btn=document.querySelector("button")
+    btn.onclick=function(){
+        add_class(test,"ch") //每次点击都添加一个ch样式
+    }
+    function add_class(obj,classname)
+    {
+        let s=obj.getAttribute("class") //拿到obj的class="" 里面的字符串
+        let myarray=s.split(" ") //字符串转数组
+        myarray.push(classname) //加入样式名称到数组
+
+        
+        let s2=myarray.join(" ") //数组转字符串
+        obj.className=s2  //将样式再赋值回去，进行添加样式
+    }
+
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .jichu
+        {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: all 1s
+        }
+        .a
+        {
+            width: 200px
+        }
+        .b
+        {
+            background: blue
+        }
+        .c{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="jichu a b c"></div>  
+    <button id="a">添加a样式</button><br>
+    <button id="b">添加b样式</button><br>
+    <button id="c">添加c样式</button><br>
+
+    <button id="a1">删除a样式</button><br>
+    <button id="b1">删除b样式</button><br>
+    <button id="c1">删除c样式</button><br>
+    
+</body>
+
+<script>
+function $(e){
+    return document.querySelector(e)
+}
+$("#a").onclick=function(){
+    add_class($("#box"),"a")  
+}
+$("#b").onclick=function(){
+    add_class($("#box"),"b")  
+}
+$("#c").onclick=function(){
+    add_class($("#box"),"c")  
+}
+$("#a1").onclick=function()
+{
+  del_class($("#box"),"a")
+}
+
+
+//添加样式
+function add_class(obj,className){
+    let s=obj.getAttribute("class")
+    let myarray=s.split(" ")
+    //重复判断，不包含才添加样式名称
+    if(!myarray.includes(className)){
+        myarray.push(className)
+    }
+    let s2=myarray.join(" ")
+    obj.className=s2
+}
+
+//删除样式
+function del_class(obj,className){
+
+    let s=obj.getAttribute("class")
+    let myarray=s.split(" ") 
+    
+    if(myarray.includes(className)){
+        //删除
+        // myarray.splice(从哪儿，删几个，补什么)
+        myarray.find(function(value){
+            if(value===className){
+            //   indexof怎么获取索引值
+                let index=myarray.indexOf(className)
+                // 索引值
+                myarray.splice(index,1)
+            }
+        })
+        let s2=myarray.join(" ") //转为字符串，以空格分隔
+        obj.className=s2  //样式添加
+    }
+    else{
+        alert("没有这个样式！！！")
+    }
+}
+
+
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <li>1</li>
+    <li id="i2">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <div id="a"></div>
+    <button id="selector">点击</button>
+</body>
+<script src="./jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //~选中i2后的li节点
+        $('#i2~li').css({
+            "background":"red",
+            "font-size":"20px"
+        })
+    })
+
+    //后面跟参数值时间、回调函数
+    $('button').click(function(){
+        $('#a').hide(2000,function(){
+            $('#a').show(2000)
+        })
+    })
+    
+    //基本动画
+    $(selector).show();
+    $(selector).hide();
+    $(selector).fadeIn();
+    $(selector).fadeOut();
+    $(selector).slideDown();
+    $(selector).slideUp();
+    $(selector).slideToggle();
+
+    //自定义动画
+    $(selector).animate({
+        "width":"200px",
+        "display":"block",
+        "height":"200px"
+    },2000,function(){
+        $(selector).animate({
+            "width":"100px",
+            "display":"block",
+            "height":"100px"
+        },1000)
+    });
+
+   //执行动画前，停止之前的动画
+   $(selector).stop().slideDown()
+</script>
+</html>

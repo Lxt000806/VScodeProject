@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        div {
+            width: 600px;
+            margin: 50px auto;
+        }
+        div span {
+            float: left;
+            margin-right: 20px;
+
+        }
+        li {
+            width: 25px;
+            height: 25px;
+            background-image: url(./images/star.png);
+            background-repeat: no-repeat;
+            float: left;
+        }
+        .active {
+            background-position-y: -28px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>点击星星就能评分</span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p></p>
+    </div>
+</body>
+<script>
+    var message = [
+        '很不满意|与卖家图片严重不符',
+        '不满意|产品质量不是很好',
+        '一般|衣服质量一般',
+        '满意|质量不错，与产品介绍基本一致',
+        '非常满意|质量非常好，与卖家介绍完全一致，很满意'
+    ]
+
+    // 定义一个保存当前评分的变量
+    var score = -1;
+    var isShow = false;
+
+    $('li').on({
+        mouseover: function(){
+            showStar($(this).index())
+            showMessage($(this).index())
+        },
+        mouseout: function(){      
+            if(!isShow){
+                showStar(score)
+                //清空标签中的内容
+                $('p').empty()
+            }        
+        },
+        click:function(){
+            isShow = true
+            showStar($(this).index())
+            showMessage($(this).index())          
+        }
+    })
+
+    // 封装一个函数，专门处理显示几个星星用的
+    function showStar(num) {
+        for(var i = 0; i < $('li').length; i++){
+            if(i <= num){
+                // 添加 class
+                $('li').eq(i).addClass('active')
+            }
+            else {
+                // 移除 class
+                $('li').eq(i).removeClass('active')
+            }
+        }
+    }
+
+    function showMessage(num){
+        $('p').html(message[num])
+    }
+</script>
+</html>

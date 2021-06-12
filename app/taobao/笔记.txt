@@ -1,0 +1,28 @@
+<a href="#" target="_blank"></a>  超链接地址会打开一个新页面
+<link rel="icon" href="云-中国风.ico"> 图标文件必须放在根目录下
+padding: 0 6px; 上下0，左右6像素
+text-indent: -9999px; 首行缩进
+border-radius: 6px 6px 0 0; 左上右上各弯曲6px
+outline: none; 看不见边框
+text-indent: 10px; 文字距离前方的距离
+vertical-align: 1px; 垂直向上1px
+background-color: transparent; 背景颜色透明看不见
+width: calc(100% - 190px); 计算剩余的宽度，运算符号前后要有空格
+box-sizing: border-box; /*使边框沿着盒模型*/
+
+display: table-cell; /*td单元格，所有内容垂直居中显示*/
+vertical-align: middle;
+ word-break: keep-all; /*在空格的地方强制换行*/
+
+display: flex; 弹性盒模型
+justify-content: space-around; 左右间距均分
+align-items: center; 上下间距均分
+
+background-image: linear-gradient(to right,#ff9000,#ff5000); 线性渐变
+@规则
+    @charset 'utf-8';  设置样式表的编码
+    @import 'reset.css'; 导入其他样式文件
+    @meida 媒体查询
+    @font-face 自定义字体
+
+子元素一浮动，父级元素就要清除浮动

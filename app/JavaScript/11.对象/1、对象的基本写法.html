@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //声明对象
+    function Person(cname,cage){
+        this.name=cname;
+        this.age=cage;
+        this.eat=function(){
+            console.log("吃")
+        }
+    }
+
+    //实例化对象
+    let xiaoming=new Person("小明","18")
+    console.log(xiaoming.name)
+    console.log(xiaoming.age)
+    xiaoming.eat()
+
+
+    //JS的对象本质
+    function Array(){
+       this.sayHi=function(){
+           console.log("您好")
+       } 
+    }
+
+    let myarray=new Array("a","b")
+    myarray.sayHi()
+
+    let obj=new Object()
+    function Object(){
+        this.getObj=function(){
+            console.log("获取对象")
+        }
+    }
+    obj.getObj()
+</script>
+</html>

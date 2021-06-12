@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //严格模式和非严格模式
+    let s="qddd333"
+    let reg=/[a-z]{2}\d{2}/
+    console.log(reg.test(s))
+
+
+    let s2="dd33"
+    let reg2=/^[a-z]{2}\d{2}$/
+    console.log(reg2.test(s2))
+
+    //贪婪模式和非贪婪模式
+
+    let s3="aa<div>test1</div>bb<div>test2</div>cc "
+    //贪婪模式
+    let reg3=/<div>.*<\/div>/;
+    console.log(s3.match(reg3).toString())
+    //非贪婪模式
+    let reg4=/<div>.*?<\/div>/g;
+    console.log(s3.match(reg4).toString())
+
+    //零宽断言
+    //(?=exp)用于匹配的位置前面能匹配到的值。
+    //(?<=exp)用于匹配的位置后面能匹配到的值。
+    var str="abZW863";
+    var reg5=/ab(?=[A-Z])/;
+    console.log(str.match(reg5).toString());
+
+    var st="中国人法国人"
+    var re=/(?<=中国)人/
+    console.log(st.match(re).toString());
+
+</script>
+</html>

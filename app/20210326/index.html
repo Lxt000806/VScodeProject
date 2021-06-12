@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <script src="./jquery.js"></script>
+</head>
+<body>
+    <iframe src="./home/index.html" name="content" frameborder="0"></iframe>
+    <footer>
+        <a href="./home/index.html" target="content">
+            <span class="icon"></span>
+            <span class="title">首页</span>
+        </a>
+        <a href="./class/index.html" target="content">
+            <span class="icon"></span>
+            <span class="title">分类</span>
+        </a>
+        <a href="./car/index.html" target="content">
+            <span class="icon"></span>
+            <span class="title">购物车</span>
+        </a>
+        <a href="./main/index.html" target="content">
+            <span class="icon"></span>
+            <span class="title">我的</span>
+        </a>
+    </footer>
+</body>
+<script>
+    /*
+    var 是声明一个变量的关键字，for循环中通过var创建的变量是全局变量
+    let 是声明一个变量，块级变量，for循环中通过let创建的变量只能在for循环中使用
+    */
+    var as = $('a') //找到页面中所有 a标签
+
+    for(let i=0;i<as.length;i++){
+        as[i].onclick = function(){
+            // alert('按钮被点击了'+i)
+            //修改所有的图标，将所有的图标设置为未选中状态
+            for(var j =0;j<as.length;j++){
+                var offset = 0
+                if(j == 0){
+                    offset = 30
+                }else if(j == 1){
+                    offset = -30
+                }else if(j == 2){
+                    offset = -90
+                }else if(j == 3){
+                    offset = 90
+                }
+
+                $($(".icon")[j]).css({
+                    'background-position-y':offset+'px'
+                })
+
+                $($(".title")[j]).css({
+                    'color': 'gray'
+                })
+            }
+            var offset = 0
+            if(i == 0){
+                offset = 60
+            }else if(i == 1){
+                offset = 0
+            }else if(i == 2){
+                offset = -60
+            }else if(i == 3){
+                offset = 120
+            }
+
+            $($(".icon")[i]).css({
+                'background-position-y':offset+'px'
+            })
+
+            $($(".title")[i]).css({
+                'color': 'rgb(254,106,0)'
+            })
+        }
+    }
+</script>
+</html>

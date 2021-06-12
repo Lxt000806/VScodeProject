@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ 写一个Person对象<br>
+ Person对象有name age属性<br>
+ 有Eat的公有方法<br>
+
+ 写一个Student继承Person的所有属性方法<br>
+ Student有一个公有的方法学习<br>
+ Student有一个私有的方法付学费paymoney<br>
+
+ 写一个小学生LitStudent()<br>
+ 继承Student的所有属性和方法  <br> 
+ LitStudent有一个私有方法cry<br>
+</body>
+<script>
+//Person对象--------------
+function Person(name,age)
+{
+    this.name=name;
+    this.age=age;
+}
+Person.prototype={
+    eat:function(){console.log("吃")},
+    play:function(){console.log("玩游戏")}
+}
+
+//Student对象------------------
+//学生继承person
+function Student(name,age)
+{
+    Person.call(this,name,age)
+    this.payMoney=function()
+    {
+        console.log("交学费")
+    }
+}
+//先拷贝，在添加自己的原型方法，在修改构造器
+Student.prototype=Object.create(Person.prototype)
+Student.prototype.playBall=function(){
+    console.log("打球")
+}
+Student.prototype.contructor=Student;
+
+//小学生对象
+function Litstudent(name,age)
+{
+    // call不仅仅可以继承构造函数的属性，还能继承私有方法
+    Student.call(this,name,age)
+    this.cry=function()
+    {
+        console.log("爱哭")
+    }
+}
+//继承公有方法
+Litstudent.prototype=Object.create(Student.prototype)
+Litstudent.prototype.contructor=Litstudent
+
+
+let daming=new Student("大明",18)
+let xiaoming=new Litstudent("小明",6)
+
+console.log(daming.name)
+console.log(daming.age)
+daming.eat()
+daming.play()
+daming.payMoney()
+
+console.log(xiaoming.name)
+console.log(xiaoming.age)
+xiaoming.eat()
+xiaoming.play()
+xiaoming.payMoney()
+xiaoming.cry()
+xiaoming.playBall()
+
+
+
+</script>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .zoombox {
+            width: 686px;
+            margin: 50px auto;
+        }
+        .zoompic {
+            width: 684px;
+            height: 394px;
+            border: 1px solid gray;
+            background-image: url(./images/loading.gif);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+        .sliderbox {
+            height: 76px;
+            margin-top: 10px;
+        }
+        .arrow-btn {
+            width: 38px;
+            height: 76px;
+            background-image: url(./images/arrow-btn.png);
+        }
+        #btnLeft {
+            float: left;
+        }
+        #btnRight {
+            float: right;
+            background-position: -38px 0;
+        }
+        #btnLeft.dasabled{
+            background-position: 0 -76px;
+        }
+        #btnRight.dasabled{
+            background-position: -38px 76px;
+        }
+        .slider {
+            float: left;
+            width: 600px;
+            height: 76px;
+            margin-left: 5px;
+            position: relative;
+            /* 设置超出部分隐藏 */
+            overflow: hidden;
+        }
+        ul {
+            position: absolute;
+            width: 1200px;
+        }
+        li {
+            float: left;
+            width: 120px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="zoombox">
+        <!-- 大图 -->
+        <div class="zoompic"><img src="./images/3427.jpg" alt=""></div>
+
+        <div class="sliderbox">
+            <div id="btnLeft" class="arrow-btn dasabled"></div>
+
+            <div class="slider">
+                <ul>
+                    <li class="current"><a href="images/3427.jpg"><img src="images/14fd.jpg" alt="" /></a></li>
+                    <li><a href="images/23463.jpg" target="_blank"><img src="images/234fa.jpg" alt="" /></a></li>
+                    <li><a href="images/3247.jpg"><img src="images/412saf.jpg" alt="" /></a></li>
+                    <li><a href="images/52347.jpg"><img src="images/41a.jpg" alt="" /></a></li>
+                    <li><a href="images/26547.jpg"><img src="images/41356a.jpg" alt="" /></a></li>
+                    <li><a href="images/2153.jpg"><img src="images/432sadf.jpg" alt="" /></a></li>
+                    <li><a href="images/3427.jpg"><img src="images/14fd.jpg" alt="" /></a></li>
+                    <li><a href="images/52347.jpg"><img src="images/41a.jpg" alt="" /></a></li>
+                    <li><a href="images/26547.jpg"><img src="images/41356a.jpg" alt="" /></a></li>
+                    <li><a href="images/23463.jpg"><img src="images/234fa.jpg" alt="" /></a></li>
+                </ul>
+            </div>
+
+            <div id="btnRight" class="arrow-btn dasabled"></div>
+        </div>
+
+    </div>
+</body>
+<script>
+    // 点击小图切换大图
+    $('a').click(function(){
+
+        //找到大图的标签,将它的src属性更改为当前点击对象的href
+        $('.zoompic img').fadeOut(350).fadeIn(350).attr({
+            src:$(this).attr('href')
+        })
+
+        // 阻止默认事件和冒泡
+        return false;
+    })
+
+    //表示点击的次数
+    var sliderCount = 0;
+
+    //图片的个数
+    var imgCount = $('li').length;
+
+    $('#btnRight').click(function(){
+
+        // 最后一张不能被点击
+        if(sliderCount >= imgCount - 5){
+            return false;
+        }
+        //每次点击都加一
+        sliderCount++;
+
+        // 让小图向左滑动
+        $('ul').animate({
+            left:'-='  + $('li').width()
+        },500)
+        checkState()
+    })
+
+    $('#btnLeft').click(function(){
+
+        // 第一张不能被点击
+        if(sliderCount <= 0 ){
+            return false;
+        }
+        //每次点击都减一
+        sliderCount--;
+
+        // 让小图向右滑动
+        $('ul').animate({
+            left:'+='  + $('li').width()
+        },500)
+        checkState()
+    })
+
+    //检测状态
+    function checkState(){
+        if(sliderCount >= imgCount - 5){
+            // 处于最后一张
+            $('#btnRight').addClass('dasabled')
+
+        }else if(sliderCount <= 0 ){
+            // 处于第一张
+            $('#btnLeft').addClass('dasabled')
+            
+        }else{
+            // 处于中间
+            $('#btnRight').removeClass('dasabled')
+            $('#btnRight').removeClass('dasabled')
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>百度换肤</title>
+    <style>
+    *{margin:0;padding:0}
+
+    html,body,.box
+    {
+        height: 100%
+    }
+    .top
+    {
+        height: 40px;
+        width: 100%;
+        border-bottom: 1px solid #ebebeb;
+        line-height: 40px;
+        text-align: right;
+        position: relative;
+        background: white;
+        z-index: 999
+    }
+
+    .top span
+    {
+        padding-right: 30px;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+    
+    .mid
+    {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .mid input{
+
+        width: 500px;
+        height: 40px;
+        border:1px solid #3388ff;
+    }
+
+    .mid button
+    {
+        width: 120px;
+        height: 42px;
+        background: #3388ff;
+        border:none;
+        position: relative;
+        top: 1.5px;
+        color:white;
+
+    }
+    a,a:hover
+    {
+        color: #000
+    }
+
+    .pf
+    {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        border-bottom: 1px solid #ebebeb;
+        box-shadow: 1px 1px 15px #b7b7b7;
+        text-align: center;
+        line-height: 250px;
+        top: -250px;
+        /* top */
+    } 
+    </style>
+    
+    
+
+</head>
+<body>
+<div class="box" id="box">
+
+
+       <div class="top"><span>新闻</span> <span>好123</span> <span>地图</span> <span>视频</span> <span>贴吧</span> <a href="#"><span id="hf">收起</span></a></div>
+        
+<!-- java1234 -->
+       <div class="pf" id="pf">
+             <img src="images/1.jpg" alt="" width="150" id="pic1"/>
+             <img src="images/2.jpg" alt="" width="150" id="pic2"/>
+             <img src="images/3.jpg" alt="" width="150" id="pic3"/>
+       </div>
+        
+       <div class="mid">
+           <img src="images/bd.png"><br>
+           <input type="" name=""><button>百度一下</button>
+       </div>
+
+</div>
+
+</body>
+<script>
+  let flag=0
+  let timer
+  let pf=document.querySelector(".pf")
+  let btn=document.querySelector("#hf")
+  
+  function $(e)
+  {
+      return document.querySelector(e)
+  }
+  btn.onclick=function()
+  {
+    flag+=1
+    if(flag%2==1)
+    {
+        this.innerHTML="下拉"
+        gogo(pf,10,0)
+        //timer
+    }
+    else
+    {
+        this.innerHTML="收起"
+        gogo(pf,-10,-250)
+        //timer
+        
+    }
+  }
+
+  function gogo(obj,speed,target)
+  {     
+        //使用setInterval之前
+        // 先习惯性清楚一次timer
+        clearInterval(timer)
+        timer=setInterval(go,20)
+        function go(){  
+          obj.style.top=parseInt(window.getComputedStyle(obj).top)+speed+"px"         
+          if(parseInt(obj.style.top)==target)
+          {          
+            clearInterval(timer)
+          }
+        }
+  }
+   
+  changeImg( $("#pic1"),"1.jpg")
+  changeImg( $("#pic2"),"2.jpg")
+  changeImg( $("#pic3"),"3.jpg")
+
+   
+  function changeImg(btn,img)
+  {
+        btn.onclick=function(){
+            document.body.style.background="url(images/"+img+") no-repeat"
+        }
+  }
+ /*  $("#pic1").onclick=function(){
+
+    document.body.style.background="url(images/1.jpg) no-repeat"
+  } 
+  
+  $("#pic2").onclick=function(){
+
+document.body.style.background="url(images/2.jpg) no-repeat"
+}
+
+$("#pic3").onclick=function(){
+
+document.body.style.background="url(images/3.jpg) no-repeat"
+} */
+</script>
+</html>

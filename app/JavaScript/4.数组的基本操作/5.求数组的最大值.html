@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let myarray=[1,2,3,3,443,3,4,4,5]
+    // 求数组最大值
+    /* 
+        数组如果要接收元素不能直接数组=Array
+        应该是数组【下标】= ，不然类型会被强制改变 
+    */
+
+    let mynewarray=new Array()
+    mynewarray[0]=myarray[1];
+
+    for(let i=1;i<myarray.length;i++){
+
+        if(myarray[i]>mynewarray[0]){
+            mynewarray.splice(0,1,myarray[i]) //修改数组
+        }
+    }
+    console.log(mynewarray[0])
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #pf
+            {
+                width: 200px;
+                height: 100px;
+                background: red;
+                position: fixed;
+                left:0px;
+                top: 0px;
+            }
+            button
+            {
+                margin-top: 900px;
+            }
+    </style>
+</head>
+<body>
+    
+    <div id="pf"></div>
+    <button id="hf">点击改变</button>
+</body>
+<script src="go.js"></script>
+<script>
+   
+    let num=0
+    let timer
+    let pf=document.querySelector("#pf");
+    let hf=document.querySelector("#hf");
+    hf.onclick=function()
+    {
+      num++
+      if(num%2==1)
+      {
+        //下拉
+        // obj,attr,speed,target
+        go(pf,"width","height",10,500)
+      }
+      else
+      {
+        //上升
+         // obj,attr,speed,target
+        go(pf,"width","height",-10,200)
+      }
+    }
+    /* 如果你从外部传入一属性的字符串
+    在js语言里面一定要使用[]中括号来接收 */
+  
+</script>
+</html>

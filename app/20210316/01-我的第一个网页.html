@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:nth-of-type(1){
+            font-size: 22px;
+        }
+        span{
+            /*将元素转换成行级块元素，才能设置宽高*/
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background-color: blue;
+            position: relative;
+            /*
+            相对定位：相对于最开始的位置进行调整
+            绝对定位：相对于最近一个有设置定位的父级元素进行定位，所有父级元素都无定位，就会相对于浏览器左上角进行调整
+            固定定位：相对于浏览器左上角进行调整
+            */
+            
+        }
+
+        #title {
+                background-color: red;
+                width: 8px;
+                height: 8px;
+            }
+    </style>
+</head>
+<body>
+    <div><span id="title"></span> 瞧一瞧</div>
+    <div><span></span> 看一看</div>
+    <div><span></span> 扭一扭</div>
+    <div><span></span> 舔一舔</div>
+    <div><span></span> 泡一泡</div>
+    <div><span></span> 奥利奥</div>
+</body>
+</html>

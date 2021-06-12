@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myul">
+        <li>1</li>
+        <li id="li2">2</li>
+        <li>3</li>
+    </ul>
+
+</body>
+<script>
+// 增删改查
+//先创建后添加=>只能从父级添加
+let myli=document.createElement("li")
+myul.appendChild(myli)
+myul.removeChild(li1)//删除 
+
+// 查找父级  查找子级  查找兄弟
+console.log(li1.parentNode)
+console.log(myul.children)
+console.log(myul.childNodes)//换行都拿到
+
+
+console.log(li2.previousSibling)
+console.log(li2.previousElementSibling)
+
+console.log(li2.nextSibling)
+console.log(li2.nextElementSibling)
+</script>
+</html>

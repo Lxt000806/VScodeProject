@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        includes可以判断字符串是否包括一个连续的字符串
+        includes可以判断数组是否包含一个元素
+    */
+    let mya=[1,2,22,3,3,4,5]
+    
+    console.log(uqi(mya)) //去重复值得到的新数组为[1,2,22,3,4,5]
+
+    function uqi(arr){
+
+        let mynewarray=[]
+        mynewarray[0]=arr[0]
+
+        for(let i=1;i<arr.length;i++){
+
+            if( !mynewarray.includes(arr[i]) ){
+                mynewarray.push(arr[i])
+            }      
+        }
+        return mynewarray
+    }
+
+</script>
+</html>

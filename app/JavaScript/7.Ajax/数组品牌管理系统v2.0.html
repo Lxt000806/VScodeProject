@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">品牌管理系统</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <label>
+                序号:
+                <input id="myid" type="text" class="form-control">
+            </label>
+
+            <label>
+                品牌:
+                <input id="myband" type="text" class="form-control">
+            </label>
+
+
+            <label>
+                库存:
+                <input id="mynum" type="text" class="form-control">
+            </label>
+
+            <input id="mybtn" type="button" value="添加" class="btn btn-primary">
+
+            <label>
+                搜索名称关键字：
+                <input type="text" class="form-control" id="search">
+            </label>
+            <input id="mysearch" type="button" value="搜索" class="btn btn-primary">
+            <input id="paixv" type="button" value="降序" class="btn btn-primary">
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>库存</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="mytbody">
+        <!--     
+            <tr>
+                <td>测试序号</td>
+                <td>测试品牌</td>
+                <td>测试库存</td>
+                <td>测试删除</td>
+            </tr> 
+        -->
+        </tbody>
+    </table>
+</div>
+<script>
+
+    /*
+    fetch json-server的几种基本命令：
+        get 读取
+        post 上传
+        delete 删除
+        put 修改
+        update 修改
+    */
+    let url="http://localhost:3000/band"
+
+    function $(e){
+       return document.querySelector(e)
+    }
+
+    //方法一：封装fetch
+    function getlist(){
+        return fetch(url,{
+            method:"GET",
+            mode:"cors"
+        }).then(r=>r.json())
+    }
+    getlist().then(data=>show_data(data))
+
+    //方法二
+    let mypromise = new Promise(function(resolve,reject){
+        fetch(url,{
+            method:"GET",
+            mode:"cors"
+        })
+        .then(r=>r.json())
+        .then(data=>resolve(data)) //用resolve将数据带出
+    })
+    mypromise.then(data=>show_data(data))
+
+    //方法三(记得加分号，不然会报错)
+    ;(async function(){
+        let a = await getlist()
+        show_data(a)
+    }());
+
+    //将数据渲染到页面
+    function show_data(arr){
+        let output=""
+        arr.forEach(value=>{
+            output+=
+            `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.num}</td>
+                    <td><a onclick="del_info(${value.id})">删除</a></td>
+                </tr>
+            `
+        })
+        $("#mytbody").innerHTML=output
+    }
+      
+   //添加操作
+   $("#mybtn").onclick=function(){
+        let v1=$("#myid").value
+        let v2=$("#myband").value
+        let v3=$("#mynum").value
+        let json={ "id":v1,"name":v2,"num":v3}
+        fetch(url,{
+            method:"POST",
+            mode:"cors",
+            headers:new Headers({
+                "Accept":"application/json",
+                "Content-type":"application/json"
+            }),
+            body:JSON.stringify(json)
+        }).then(function(r){
+            if(r.status==201)
+            {
+                mytbody.innerHTML=""
+                getlist().then(data=>show_data(data))
+            }
+        })
+   }
+
+   //删除
+   function del_info(id){
+       fetch(url+"/"+id,{
+           method:"delete",
+           mode:"cors"
+       }).then(r=>{
+           if(r.status==200){
+             getlist().then(data=>show_data(data)) //重新渲染；相当于刷新页面，从修改后的json文件从重新渲染到页面上
+           }
+       })
+   }
+
+   $("#mysearch").onclick=function(){
+       let v = $("#search").value
+       getlist().then(data=>{
+            //做筛选
+            let mynewarray = []
+            data.forEach(value=>{
+                if(value.name.includes(v)){
+                    mynewarray.push(value) //将符合的加入新数组
+                }
+            })
+            show_data(mynewarray)
+       })
+    }
+
+  
+
+  //排序
+//   $("#paixv").onclick=function(){
+//       num++
+//       if(num%2==1){  
+//         $("#paixv").value="升序" 
+//         myarray.sort(function(a,b){
+//             if(a.num<b.num){
+//             return 1 
+//             }
+//             if(a.num==b.num){
+//                 return 0
+//             }
+//             if(a.num>b.num){
+//                 return -1
+//             }
+//         })
+//         get_info(myarray)
+//       }
+//       else{
+//         $("#paixv").value="降序"
+//         myarray.sort(function(a,b){
+//             if(a.num<b.num){
+//                 return -1 
+//             }
+//             if(a.num==b.num){
+//                 return 0
+//             }
+//             if(a.num>b.num){
+//                 return 1
+//             }
+//         }) 
+//         get_info(myarray)
+//       }
+//   }
+
+</script>
+</body>
+</html>

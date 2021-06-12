@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    fetch是一个异步的过程，相当于多线程
+    .then()  上面一步执行完才能执行下一步
+    */
+    fetch("https://api.github.com/users",{
+        method:"GET",
+        mode:"cors"
+    }).then(r=>r.json()) //r是数据流
+      .then(data=>{
+          a=data
+      })
+
+    //每隔一秒执行一次function
+    setTimeout(function(){
+        console.log(a)
+    },1000)
+</script>
+</html>

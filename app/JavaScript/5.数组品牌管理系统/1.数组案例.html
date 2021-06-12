@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加品牌</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <label>
+                序号:
+                <input id="myid" type="text" class="form-control">
+            </label>
+
+            <label>
+                品牌:
+                <input id="myband" type="text" class="form-control">
+            </label>
+
+
+            <label>
+                库存:
+                <input id="mynum" type="text" class="form-control">
+            </label>
+
+            <input id="mybtn" type="button" value="添加" class="btn btn-primary">
+
+            <label>
+                搜索名称关键字：
+                <input type="text" class="form-control" id="search">
+            </label>
+            <input id="mysearch" type="button" value="搜索" class="btn btn-primary">
+            <input id="paixv" type="button" value="降序" class="btn btn-primary">
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>库存</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="mytbody">
+        <!--     
+            <tr>
+                <td>测试序号</td>
+                <td>测试品牌</td>
+                <td>测试库存</td>
+                <td>测试删除</td>
+            </tr> 
+        -->
+        </tbody>
+    </table>
+</div>
+<script>
+    /*
+        对象用{}来表示
+        console.log(typeof(mya)) 查看数据类型
+        表单控件不接受innerText
+        伪数组：
+            {
+                "jiedian":  <a>删除</a>
+                "jiedian":  <a>删除</a>
+                "jiedian":  <a>删除</a>
+                "jiedian":  <a>删除</a>
+                "jiedian":  <a>删除</a>
+                length:5
+            }
+        sort() 根据函数返回值进行排序
+            返回值<0 小的放前面
+            返回值=0 不变
+            返回值>0 大的放后面
+    */
+   let num=0
+   let myarray=[
+       {"id":1,"band":"宝马","num":1},
+       {"id":2,"band":"宝骏","num":34},
+       {"id":3,"band":"保时捷","num":23},
+       {"id":4,"band":"奔驰","num":156},
+       {"id":5,"band":"奔奔","num":3}]
+   
+   function $(e){
+       return document.querySelector(e)
+   }
+ 
+   //添加操作
+   $("#mybtn").onclick=function(){
+        let v1=$("#myid").value
+        let v2=$("#myband").value
+        let v3=$("#mynum").value
+        myarray.push({"id":v1,"band":v2,"num":v3})
+        get_info(myarray)
+   }
+
+  get_info(myarray)
+
+  //将数组里的对象渲染到页面上
+  function get_info(ar){
+    $("#mytbody").innerHTML=""
+    ar.forEach(function(value,index,arr){
+       $("#mytbody").innerHTML+=
+       `
+           <tr>
+               <td>${value.id}</td>
+               <td>${value.band}</td>
+               <td>${value.num}</td>
+               <td><a onclick="del_info(${index})">删除</a></td>
+           </tr>
+       `
+    })
+  }
+  
+  //删除
+  function del_info(index){
+      myarray.splice(index,1) //修改数组
+      get_info(myarray)
+  }
+  
+  //搜索
+  $("#mysearch").onclick=function(){
+        let newarray=[]
+        myarray.forEach(function(value,index,arr){
+           if(value.band.includes($("#search").value)) {
+              newarray.push(value)  
+           }    
+
+        })
+        get_info(newarray)
+  }
+
+  //排序
+  $("#paixv").onclick=function(){
+      num++
+      if(num%2==1){  
+        $("#paixv").value="升序" 
+        myarray.sort(function(a,b){
+            if(a.num<b.num){
+            return 1 
+            }
+            if(a.num==b.num){
+                return 0
+            }
+            if(a.num>b.num){
+                return -1
+            }
+        })
+        get_info(myarray)
+      }
+      else{
+        $("#paixv").value="降序"
+        myarray.sort(function(a,b){
+            if(a.num<b.num){
+                return -1 
+            }
+            if(a.num==b.num){
+                return 0
+            }
+            if(a.num>b.num){
+                return 1
+            }
+        }) 
+        get_info(myarray)
+      }
+  }
+
+</script>
+</body>
+</html>

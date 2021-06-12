@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./art-template.js"></script>
+</head>
+<body>
+    
+</body>
+<!-- 
+    定义模板：
+    1.需要id 
+    2.需要type="text/html"
+ -->
+<script id="temp" type="text/html">
+    <h1>{{title}}</h1>
+    <ul>
+        {{each content as value}}
+        <li>
+            车名：{{value.name}} - 价格：{{value.price}} - 优惠：{{value.current}}
+        </li>
+        {{/each}}
+    </ul>
+    
+</script>
+
+<script>
+
+    //假设该数据是从服务器获取的内容
+    var data ={
+        title:'豪车车展',
+        content:[
+            {name:'玛莎拉蒂',price:'999',current:'888'},
+            {name:'比亚迪',price:'999',current:'888'},
+            {name:'宝马',price:'999',current:'888'},
+            {name:'大众',price:'999',current:'888'},
+            {name:'保时捷',price:'999',current:'888'},
+            {name:'路虎',price:'999',current:'888'},
+        ]
+    }
+
+    var htmlStr = template('temp',data);
+
+    console.log(htmlStr)
+    document.body.innerHTML = htmlStr
+</script>
+</html>

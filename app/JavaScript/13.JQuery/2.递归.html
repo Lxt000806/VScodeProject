@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let num = 1
+    //自调用/递归
+    function fn(){
+        num++
+        console.log(1)
+        if(num<=5){
+            fn()
+        }
+    }
+    fn()
+
+    //递归实例：求和1-5
+    function getSum(x){
+        if(x==1){
+            return 1
+        }
+        return x+getSum(x-1)
+    }
+    console.log(getSum(5))
+
+
+    //沙箱
+    let timer = 10;
+    (function(){
+        let timer = 5;
+        console.log(timer)
+    }());
+    console.log(timer)
+    
+</script>
+</html>

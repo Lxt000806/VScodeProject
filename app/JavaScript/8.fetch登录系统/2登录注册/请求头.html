@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  请求头的设置
+
+
+</body>
+<script>
+    
+//urlencoded类型application/x-www-form-urlencoded
+//multipart/form-data
+//application/json
+//text/xml
+//—————————————————————————案例一—————————————————————————————
+/* let s="username=wusenhong&password=123"
+// 一个字符串 key1=value1&key2=value2
+fetch("login.php",{
+    method:"POST",
+    headers:new Headers({
+        "Accept":"text/xml",
+        "Content-Type":"application/x-www-form-urlencoded"
+    }),
+    body:s
+}) */
+//——————————————————————————案例二——————————————————————————————
+let myjson={"username":"wusenhong","password":123}
+let myformData=new FormData()
+for (let key in myjson)
+{
+    myformData.append(key,myjson[key])
+}
+fetch("login.php",{
+    method:"POST",
+    body:myformData
+})
+//---------------------------json遍历--------
+// forEach for in(索引)  for of（value）
+/* let myobj={"name":"aa","age":18}
+for(let i in myobj)
+{
+    // for (key in json) key是属性； json[key]是属性值
+    console.log(myobj[i])
+} */
+</script>
+</html>

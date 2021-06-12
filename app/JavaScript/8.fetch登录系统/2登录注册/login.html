@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div class="main">
+    <div class="mainin">
+        <div style="margin:15px auto; width: 84px"><img src="images/ht_name.png"></div>
+        <div class="mainin1">
+            <ul>
+                <li><span>用户名：</span><input name="loginname" type="text" id="loginName" placeholder="登录名" class="SearchKeyword"></li>
+                <li><span>密码：</span><input type="password" name="password" id="passWord" placeholder="密码" class="SearchKeyword2"></li>
+                <li><button class="tijiao">登录</button></li>
+                <li><button class="zhuche">注册</button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+function $(e){
+  return document.querySelector(e)
+}
+
+$(".tijiao").onclick=function(){
+
+  let v1=loginName.value
+  let v2=passWord.value
+  let myjson={"username":v1,"password":v2}
+  let myformdata=new FormData()
+  for(let key in myjson)
+  {
+    myformdata.append(key,myjson[key])  //json强制转换成FormData形式
+  }
+  // let str="username="+v1+"&password="+v2
+  fetch("login.php",{
+    method:"POST",
+    mode:"no-cors",
+    body:myformdata
+  })
+  .then(r=>{
+    if(r.status==200)
+    {
+      return r.text()
+    }
+  })
+  .then(data=>{
+
+    if(data=='"nameerror"')
+    {
+      alert("没有存在该用户名")
+    }
+    else if(data=='"passworderror"')
+    {
+      alert("密码错误")
+    }
+    else if(data=='"success"')
+    {
+      alert("登录成功")
+    }
+  })
+}
+</script>
+</html>

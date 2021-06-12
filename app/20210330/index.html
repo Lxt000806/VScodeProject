@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./art-template.js"></script>
+    <script src="./data.js"></script>  
+    <style>
+        a{
+            display: block;
+            width: 50%;
+            border:1px solid red;
+            box-sizing: border-box; /* 将边框和内边距计算到宽高中去 */
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        img{
+            width: 100%;
+            height: 400px;
+        }
+        p{
+            height: 50px;
+            margin: 0;
+            overflow: hidden;/*超出部分隐藏*/
+        }
+        p span{
+            line-height: 25px;
+            font-size: 12px;
+            background-color:pink;
+        }
+        a:nth-of-type(2n){
+            float: right;
+        }
+        a:nth-of-type(2n+1){
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    
+</body>
+<script id="temp" type="text/html">
+    <a href="{{ h5GoodUrl }}">
+        <div>
+            <img src="{{ image }}" alt="">
+            <p>
+                {{each props as value}}
+                <span>{{value}}</span>
+                {{/each}}
+            </p>
+            <span>￥{{price}}</span>
+            <span class="fr">{{collectNum}}点赞</span>
+        </div>
+    </a>
+</script>
+<script>
+    var htmlStr = ''
+    for(var i=0;i<list.length;i++){
+        htmlStr += template('temp',list[i])
+    }
+
+    document.body.innerHTML = htmlStr
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*     
+        数组尾部操作：
+        push  在数组的尾部加入元素
+        pop   在数组的尾部删除元素 
+    */
+    let myarray=[1,2,3,"张三"]
+
+    myarray.push("李四","王五")
+    myarray.pop() //只接受尾部删除一个元素
+
+
+    /* 
+        头部操作：
+        shift  删除
+        unshift 添加  
+     */
+    let myarray2=["a","b","c"]
+    myarray2.shift() //只接受头部删除一个元素
+    myarray2.unshift(1,2)
+
+    
+
+    /*  
+        很非常十分容易混淆的三个常用方法：
+        
+        slice 截取数组(开始，结束)
+        splice 修改数组 (从哪儿，改几个，改什么)
+        split 字符串转数组
+    */
+    //slice的用法
+    let myarray4=["a","b","c","d","e"]
+    let myarray5=myarray4.slice(1,4) //截取数组(不会改变原数组),包前不包后
+    console.log(myarray5) //输出b，c，d
+
+    //splice
+    let myarray6=["a","b","c","d","e"]
+    myarray6.splice(2,2,"张三","李四") //会修改原来的数组
+    console.log(myarray6)
+
+    //split
+    let string="a-b-c-d"
+    let m=string.split("-") //以-为关键字进行分隔,转成数组
+    console.log(m)
+
+ 
+
+
+</script>
+</html>

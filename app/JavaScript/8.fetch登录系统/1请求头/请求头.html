@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  请求头的设置
+</body>
+<script>
+//urlencoded类型application/x-www-form-urlencoded
+//multipart/form-data
+//application/json
+//text/xml
+//—————————————————————————案例一—————————————————————————————
+/* let s="username=wusenhong&password=123"
+fetch("login.php",{
+    method:"POST",
+    headers:new Headers({
+        "Content-Type":"application/x-www-form-urlencoded"
+    }),
+    body:s
+}) */
+//——————————————————————————案例二——————————————————————————————
+/* let s={"username":"wusenhong","password":123}
+let mydata=new FormData()
+mydata.append("username","wusenhong")
+mydata.append("password","123")
+fetch("login.php",{
+    method:"POST",
+    body:mydata
+}) */
+//----------------------请求头-------------
+fetch("login.php",{
+    method:"POST",
+    mode:"cors",
+    headers:new Headers({
+       /*  "Accept":客服端接收的数据类型
+        "Content-Type"：客服端发送的数据类型
+        */
+       "Accept":"application/json",
+       "Content-Type":"application/json"
+    })
+})
+</script>
+</html>
+
+<!-- urlencoded类型application/x-www-form-urlencoded
+multipart/form-data
+application/json
+text/xml
+text/html
+text/plain -->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* /g:全局选择
+/i:大小写忽略
+\d:表示数字
+\D:非数字
+\s:空格号
+\S:非空格
+\w:1.非特殊字符 2._
+\W:特殊字符
+*：0次到多次
++：1次到多次（若干次）
+？：0次到1次（可有<1>可无）
+.：除了回车/n之外的任意字符
+^:以什么为开始
+$:以什么为结尾
+^$:严格匹配模式
+转义字符 \ */
+//1.严格匹配模式和非严格匹配模式
+//2.贪婪模式和非贪婪模式
+//抽取html标签
+//正则默认带有贪婪模式，它会尽可能多的匹配到内容
+//使用？结束贪婪模式=>非贪婪模式
+/* let s3="aa<div>test1</div>bb<div>test2</div>cc"
+let reg=/<div>.*?<\/div>/g;
+console.log(s3.match(reg).toString()) */
+
+// 零宽断言
+// 零宽断言后断言
+let str="中国人美国人法国人中国人美国人"
+let reg=/(?<=中国)人/g
+console.log(str.match(reg).toString())
+//零宽断言后匹配
+let str2="abYW863"
+/* 匹配规则必须以ab开始，后面任意跟一个大写字母 */
+let reg2=/ab(?=[A-Z])/
+console.log(str2.match(reg2))
+/* 密码的强度必须是包含大小写字母和数字的组合，
+不能使用特殊字符，长度在8-10之间。 */
+</script>
+</html>

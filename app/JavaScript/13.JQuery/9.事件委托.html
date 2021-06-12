@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul
+        {
+            width: 1000px;
+            height: 100px;
+            border:2px solid black;
+        }
+        li{
+            width: 100px;
+            height: 50px;
+            margin-right: 20px;
+            background: pink;
+            float: left;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+<script>
+    //借助委托实现批量方法
+    let myli=document.querySelectorAll("li")
+    let myul=document.querySelector("ul")
+    myul.onclick=function(event)
+    {
+      if(event.target.nodeName.toLowerCase()=="li")
+      {
+          console.log("i")
+      }
+    }
+</script>
+</html>

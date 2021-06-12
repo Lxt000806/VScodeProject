@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+<div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加品牌</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <label>
+                序号:
+                <input id="myid" type="text" class="form-control">
+            </label>
+
+            <label>
+                品牌:
+                <input id="myband" type="text" class="form-control">
+            </label>
+
+
+            <label>
+                库存:
+                <input id="mynum" type="text" class="form-control">
+            </label>
+
+            <input id="mybtn" type="button" value="添加" class="btn btn-primary">
+
+            <label>
+                搜索名称关键字：
+                <input type="text" class="form-control" id="search">
+            </label>
+            <input id="mysearch" type="button" value="搜索" class="btn btn-primary">
+        </div>
+    </div>
+
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>库存</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="mytbody">
+        <tr>
+           <!--  <td>测试序号</td>
+            <td>测试品牌</td>
+            <td>测试库存</td>
+            <td>测试删除</td> -->
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<!-- 默认成功是返回200  失败0  404没找到地址  403禁止 -->
+<script>
+    let url="http://localhost:3000/car"
+    let mytbody =document.querySelector("#mytbody")
+    let myBtn=document.querySelector("#mybtn")
+    let myid=document.querySelector("#myid")
+    let myband=document.querySelector("#myband")
+    let mynum=document.querySelector("#mynum")
+
+    let mysearch=document.querySelector("#mysearch")
+    mysearch.onclick=function(){
+        console.log(myid.value)
+        console.log(myband.value)
+        console.log(mynum.value)
+    }
+
+    function getmsg(){
+
+
+        fetch(url,{
+            method:"GET",
+            mode:"cors"
+        })
+            .then(function(r){
+                if(r.status==200)
+                {
+                    return r.json()
+                }
+            })
+            .then(function(data){
+
+                data.forEach(function(value){
+                    var output=""
+                    output=`
+            <tr>
+                <td>${value.id}</td>
+                <td>${value.title}</td>
+                <td>${value.num}</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            `
+                    //后续渲染到页面中去
+                    mytbody.innerHTML+=output
+                })
+
+            })
+
+    }
+    getmsg()
+
+
+/*     myBtn.onclick=function(){
+
+    } */
+    // myBtn.addEventListener(第一个是动作，第二个是触发的方法)
+    // 这种写法比较灵活，推荐
+   
+    myBtn.addEventListener("click",add)
+    function add(){
+        let myjson={"id":myid.value,"title":myband.value,"num":mynum.value}
+        fetch(url,{
+            method:"POST",
+            mode:"cors",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(myjson)
+           /*   传json记得JSON.stringify(数据)
+                把json转为字符串传给后台 */
+/*              "Content-Type": "application/json"
+                发送json数据，部分支持json的服务器可以不用写
+                "Content-Type":"application/x-www-form-urlencoded"
+                发送urlencode数据 "id=5&title="起亚"&num=1"
+                "Content-Type":"multipart/form-data"
+                // multipart/form-data可以不用声明头部
+                发送多媒体文件  视频 图片 声音 word文档ppt */
+          
+            // body:数据放在这里，以json的格式
+            // {id：”文本“，"title":"文本框的值"，”num“}
+        })
+        .then(function(r){
+            if(r.status==201)
+            {
+                mytbody.innerHTML=""
+                getmsg()
+            }
+        })
+    }
+</script>
+</body>
+</html>

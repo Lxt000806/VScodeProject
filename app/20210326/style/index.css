@@ -1,0 +1,65 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: azure;
+}
+*{
+    box-sizing: border-box;
+
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 61px;
+    border-top: 1px solid gainsboro;
+
+}
+a{
+    width: 25%;
+    height: 60px;
+    float: left;/*设置浮动，脱离文档流，就可以设置宽高*/
+    text-decoration: none;
+    color: gray;
+    position: relative;
+}
+.title{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 2px;
+}
+
+.icon{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url(../tabBar.png);
+    background-size: 100% 800%;
+    left: calc(50% - 15px);
+    top: 5px;
+}
+a:nth-of-type(1) .icon{
+    background-position-y: 60px;
+}
+a:nth-of-type(2) .icon{
+    background-position-y: -30px;
+}
+a:nth-of-type(3) .icon{
+    background-position-y: -90px;
+}
+a:nth-of-type(4) .icon{
+    background-position-y: 90px;
+}
+a:nth-of-type(1) .title{
+    color: rgb(254,106,0);
+}
+
+iframe{
+    width: 100%;
+    height: calc(100% - 61px);
+    border: none;
+}

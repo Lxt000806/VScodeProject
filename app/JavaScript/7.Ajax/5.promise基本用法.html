@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    URL = "http://localhost:3000/band"
+    //方法1：原生promise
+    function getlist(){
+        //将整个fetch当成一个promise进行return
+        return fetch(URL,{
+            method:"GET",
+            mode:"cors"
+        }).then(r=>r.json())
+    }
+
+    //Promise对象只允许内部访问PromiseValue
+    getlist().then(data=>{
+        data.forEach(v=>{
+            console.log(v)
+        })
+    })
+
+    //方法二
+    let mypromise = new Promise(function(resolve,reject){
+        fetch(URL,{
+            method:"GET",
+            mode:"cors"
+        })
+        .then(r=>r.json())
+        .then(data=>{
+            resolve(data) //成功访问，就带出数据
+            reject("失败了") //访问失败，返回"失败了"，用.catch()访问
+        })
+    })
+    mypromise.then(data=>{console.log(data)})
+    mypromise.catch(d=>console.log(d))
+
+    //将异步的过程，变成同步（按照代码顺序执行）
+    (async function(){
+        console.log(1)
+        await(function(){
+            let mypromise = new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    console.log(2)
+                    resolve() //成功，才能接下去执行下面的代码
+                },2000)
+            })
+            return mypromise
+        }())
+        console.log(3)
+    }());
+
+</script>
+</html>

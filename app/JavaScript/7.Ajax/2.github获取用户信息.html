@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li:nth-child(2n+1){
+        background-color: azure;
+    }
+
+    img{
+        width: 40px;
+        height: 40px;
+    }
+</style>
+<body>
+    <h1></h1>
+</body>
+<script>
+    let h1 = document.querySelector("h1")
+    fetch("https://api.github.com/users",{
+        method:"GET",//GET代表拿取数据
+        mode:"cors" //mode跨域；只要是域名、端口、协议不同，都算跨域
+    }).then(response=>{ //箭头函数简写
+        if(response.status==200){
+            return response.json() //把response的数据流转换为文本
+        }
+    }).then(data=>{
+        let output=""
+        data.forEach(value=>{
+            output += 
+            `
+            <li>
+                <p>序号：${value.id}</p>
+                <p>姓名：${value.login}</p>
+                <img src="${value.avatar_url}" alt="">
+            </li>
+            `
+        })
+        document.body.innerHTML = output
+    })
+</script>
+</html>

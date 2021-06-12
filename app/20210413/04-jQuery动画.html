@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: brown;
+            position: absolute;
+            left: 100px;
+        }
+        .one{
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button id="b1">显示/隐藏</button>
+    <button id="b2">自动显示/隐藏</button>
+    <button id="b3">滑动</button>
+    <button id="b4">自动滑动</button>
+    <button id="b5">渐变效果</button>
+    <button id="b6">自动渐变</button>
+    <button id="b7">自定义渐变</button>
+    <button id="b8">自定义动画</button>
+    <button id="b9" class="">自定义动画</button>
+    <button id="b10">停止动画</button>
+    <div></div>
+</body>
+<script>
+    //判断是否动画的状态
+    var isBegin = false;
+
+    
+    $('#b1').click(function(){
+        if(isBegin){
+            $('div').show(300) //如果不加参数的情况下是没有动画效果的，需要在括号内添加参数
+        }else{
+            $('div').hide(300)
+        }
+        isBegin = !isBegin;
+    })
+
+    $('#b2').click(function(){
+        $('div').toggle(1000) //根据当前状态来自动选择显示还是隐藏，参数为动画所需的时间
+    })
+
+    $('#b3').click(function(){
+        if(isBegin){
+            $('div').slideDown(300) 
+        }else{
+            $('div').slideUp(300)
+        }
+        isBegin = !isBegin;
+    })
+
+    $('#b4').click(function(){
+        $('div').slideToggle(1000) //根据当前状态来自动滑动，参数为动画所需的时间
+    })
+
+    $('#b5').click(function(){
+        if(isBegin){
+            $('div').fadeIn(1000) 
+        }else{
+            $('div').fadeOut(1000)
+        }
+        isBegin = !isBegin;
+    })
+
+    $('#b6').click(function(){
+        $('div').fadeToggle(1000) 
+    })
+
+    $('#b7').click(function(){
+        if(isBegin){
+            //第一个参数是动画时间，第二个参数是透明度
+            $('div').fadeTo(1000,1) 
+        }else{
+            $('div').fadeTo(1000,0.1)
+        }
+        isBegin = !isBegin;
+    })
+
+    $('#b8').click(function(){
+        if(isBegin){
+            $('div').animate({
+                width:'150px',
+                height:'150px',
+                opacity:'1',
+                left:'100px'
+            },1000)
+        }else{
+            $('div').animate({
+                width:'300px',
+                height:'300px',
+                opacity:'0.5',
+                left:'200px'
+            },1000)
+        }
+        isBegin = !isBegin;
+    })
+
+    //变成圆形，背景色为蓝色，移动到右下角
+    $('#b9').click(function(){
+        if(isBegin){
+            $('div').animate({
+                width:'150px',
+                height:'150px',
+                left:'100px',
+                top:'100px',
+            },1000)
+            $('div').removeClass('one');
+        }else{
+            $('div').animate({
+                width:'150px',
+                height:'150px',
+                left:'1000px',
+                top:'300px',
+            },1000)
+            $('div').addClass('one');
+        }
+        isBegin = !isBegin;
+    })
+
+
+    $('#b10').click(function(){
+        $('div').stop() //立即停止动画执行
+    })
+</script>
+</html>

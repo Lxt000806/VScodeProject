@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="./art-template.js"></script>
+</head>
+<body>
+    
+</body>
+<script id="temp" type="text/html">
+    <ul>
+		
+        <li>{{signGoodsId}}</li>
+		<li>{{title}}</li>
+		<li>{{description}}</li>
+		<li>
+			<img src="{{image}}" alt="">
+		</li>
+		<li>{{price}}</li>
+		<li>{{discountPrice}}</li>
+		<li>{{h5GoodUrl}}</li>
+		<li>{{wapGoodUrl}}</li>
+		<li>{{collectNum}}</li>
+		<li>{{isShelf}}</li>
+		<li>{{isDeleted}}</li>
+		<li>{{stock}}</li>
+    </ul>
+    
+</script>
+
+<script>
+
+    var data = {
+	"signGoodsId": "1m6w6uy",
+	"title": "昕雪惜悦 外套风衣 收腰显瘦 气质 百搭 时尚 短款 新款 韩版",
+	"description": "昕雪惜悦 外套风衣 收腰显瘦 气质 百搭 时尚 短款 新款 韩版",
+	"image": "http://s3.mogucdn.com/mlcdn/c45406/180805_2l9ge7if4cbfj6j5if5a564gl56bd_640x960.jpg",
+	"price": "134.00",
+	"discountPrice": "93.80",
+	"h5GoodUrl": "http://item.meilishuo.com/h5/detail/1m6w6uy?acm=3.ms.0_4_1m6w6uy.0.13385-69004.s026ur0RJsEi0.sd_117-t_-lc_1",
+	"pcGoodUrl": "http://item.meilishuo.com/detail/1m6w6uy?acm=3.ms.0_4_1m6w6uy.0.13385-69004.s026ur0RJsEi0.sd_117-t_-lc_1",
+	"wapGoodUrl": "http://m.meilishuo.com/wap/detail/1m6w6uy?acm=3.ms.0_4_1m6w6uy.0.13385-69004.s026ur0RJsEi0.sd_117-t_-lc_1",
+	"collectNum": 90,
+	"isShelf": 0,
+	"isDeleted": 0,
+	"stock": 1000,
+	"saleNum": 3757,
+	"dayCollectNum": null,
+	"daySaleNum": null,
+	"goodsStatus": null,
+	"itemMarks": "1711",
+	"marksUrl": null,
+	"marks": null,
+	"tagUrl": {},
+	"isFaved": false,
+	"acm": "3.ms.0_4_1m6w6uy.0.13385-69004.s026ur0RJsEi0.sd_117-t_-lc_1",
+	"props": ["昕雪惜悦", "外套风衣", "收腰显瘦", "气质", "百搭", "时尚", "短款", "新款", "韩版"]
+}
+	var htmlStr = template('temp',data)
+
+    console.log(htmlStr)
+    document.body.innerHTML = htmlStr
+</script>
+</html>

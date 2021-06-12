@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*     1、非严格匹配
+    2.严格匹配 */
+    let str="EU44"
+    //QQ77  BB11 ZZ77
+    let reg=/^[A-Z]{2}[0-9]{2}$/
+ /*    match用正则去匹配字符串，如果有匹配到
+    内容，把内容然放入一个数组，如果没有
+    匹配到，返回null */
+    console.log(str.match(reg).toString())
+</script>
+</html>

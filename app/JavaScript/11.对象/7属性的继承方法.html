@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+        this.eat=function(){//私有方法
+            console.log("今天吃拌面")
+        }
+    }
+    Person.prototype.play=function(){//公有方法
+        console.log("今天开黑")
+    }
+
+    function Student(name,age){
+        Person.call(this,name,age)//call可以继承到父级的属性和私有方法
+        this.learn=function(){
+            console.log("学习")
+        }
+    }
+
+    //学生的原型对象，从person的原型对象中复制一份
+    Student.prototype=Object.create(Person.prototype)
+    Student.prototype.contructor=Student //构造器指向Student
+    console.dir(Student.prototype)
+
+    //实例化一个对象
+    let xiaoming=new Student("小明",11)
+    console.log(xiaoming.name)
+    console.log(xiaoming.age)
+    xiaoming.learn()
+    xiaoming.eat()
+    xiaoming.play()
+    
+
+</script>
+</html>

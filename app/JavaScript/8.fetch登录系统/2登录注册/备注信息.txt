@@ -1,0 +1,36 @@
+﻿1\登录信息：
+后台传递：login.php=>json传递数据给后台
+{
+    "username":"wusenhong",
+    "password":123
+}
+接收用户名：username
+接收密码：password
+
+账户错误返回=>nameerror
+密码错误返回=>passworderror
+登录成功返回=>success
+{
+"state":"nameerror"
+"state":"passworderror"
+"state":"success"
+
+}
+
+json=>转字符串   JSON
+
+字符串转=>json
+
+2、注册的ajax异步
+
+提交的后台地址是register.php
+
+json传递数据给后台
+{
+    "username":"wusenhong",
+    "password":123
+}
+
+后台反馈 namerepeat=>用户名已经注册
+success   注册成功
+如果没有反馈   注册失败

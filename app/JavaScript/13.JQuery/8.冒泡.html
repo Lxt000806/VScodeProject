@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #big{
+            width: 500px;
+            height: 500px;
+            background: red;
+            position: relative;
+        }
+        #small
+        {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            position: absolute;
+            display: block;
+            right: -400px;           
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <a id="small" href="http://www.baidu.com"></a>
+    </div>
+</body>
+<script src="./jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+    $("bodyf").click(function(){
+        console.log("我是body")
+    })
+    $("#big").click(function(){
+        console.log("我是大盒子")
+    })
+    $("#small").click(function(event){
+        // event.stopPropagation()
+        //阻止冒泡，不阻止本身行为
+        // return false 
+        //阻止冒泡 阻止行为
+        // event.preventDefault()
+        // 阻止本身行为，不阻止冒泡
+        console.log("我是小盒子")
+    })
+})
+</script>
+</html>

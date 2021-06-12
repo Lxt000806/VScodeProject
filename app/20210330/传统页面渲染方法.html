@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //假设该数据是从服务器端获取的数据
+    var data = {
+        title: '编程类书籍',
+        content:[
+            {name:'《HTML新手指南》',price:'59.99',currentPrice:'19.9'},
+            {name:'《CSS入门教程》',price:'69.99',currentPrice:'9.9'},
+            {name:'《JavaScript从入门到放弃》',price:'199.99',currentPrice:'38.88'},
+            {name:'《VUE从开始到结束》',price:'89.99',currentPrice:'18.88'},
+            {name:'《Web前端从入门到入土》',price:'59.99',currentPrice:'19.9'},
+        ]
+    }
+
+    //收集要显示的标签内容
+    var htmlStr = ''
+    htmlStr += '<h1>' + data.title +'</h1>'
+
+    for(var i=0;i<data.content.length;i++){
+        htmlStr += '<ul>'
+        htmlStr += '<li>'
+            htmlStr += '书名' + data.content[i].name + ', 价格：￥'+data.content[i].price + ',活动价：￥' + data.content[i].currentPrice
+        htmlStr += '</li>'
+    htmlStr += '</ul>'    
+    document.body.innerHTML = htmlStr
+    }
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+</head>
+<style>
+.time{
+  color: red;
+  font-size: 24px;  
+}
+</style>
+<body> 
+
+<div style="padding: 100px;">
+  <div class="progress">
+    <div class="progress-bar" style="width: 0%;">0%</div>
+  </div>
+  <button id="mybtn">点击蓄力</button>
+  <p class="time">0秒</p>
+  <div style="text-align: right;">  
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+  let timer
+  let time=0
+  function $(e){
+      return document.querySelector(e)
+  }
+
+  // $("#mybtn").onclick=function(){
+  //   clearInterval(timer)
+  //   timer=setInterval(go,1000)
+  //   function go(){
+      
+  //     num+=10;
+  //     $(".progress-bar").style.width=num+"%"
+  //     $(".progress-bar").innerText=num+"%"   
+  //     /*
+  //      innerText 插入文本文字
+  //      innerHTML 插入标签
+  //     */
+  //     if(num==100){
+  //       clearInterval(timer)
+  //     }
+  //   }
+  // }
+
+  $("#mybtn").onmousedown=function(){
+    clearInterval(timer)
+    timer=setInterval(mytime,1000)
+    function mytime(){
+      
+      time++
+      $(".time").innerText=time+"秒"   
+      /*
+       innerText 插入文本文字
+       innerHTML 插入标签
+      */
+
+      if(time==10){
+        clearInterval(timer)
+      }
+    }
+  }
+
+  $("#mybtn").onmouseup=function(){
+    clearInterval(timer)
+
+    $(".progress-bar").style.width=(time*10)+"%"
+    $(".progress-bar").innerText=(time*10)+"%"  
+    time=0
+  }
+</script>

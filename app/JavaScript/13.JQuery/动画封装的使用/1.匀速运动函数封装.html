@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数封装</title>
+    <style>
+       .box
+       {
+           width: 100px;
+           height: 100px;
+           background: pink;
+           margin-top: 20px;
+       }
+    </style>
+</head>
+<body>
+    <button>1000</button>
+    <div class="box"></div>
+</body>
+<script>
+    var mybtn=document.querySelector("button");
+    var mybox=document.querySelector(".box");
+    mybtn.onclick=function()
+    {
+        animate(mybox,1000,50,"height")
+        function animate(obj,target,speed,attr)
+        {
+            var star=parseInt((window.getComputedStyle(obj)[attr]));
+            clearInterval(obj.timer);
+            if(star>=target)
+            {
+                return
+            }
+            obj.timer=setInterval(go,50);
+            function go()
+            {
+                star+=speed;
+                obj.style[attr]=star+"px";
+                if(star>=target)
+                {
+                    clearInterval(obj.timer)
+                }
+            }
+        }
+    };
+
+</script>
+</html>

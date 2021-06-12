@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>message</title>
+	<style>
+		html,body
+		{
+			height: 100%;
+		}
+		body
+		{
+			background-size: cover;
+			margin:0px
+		}
+		.dark-matter {
+			font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 500px;
+			background: #555;
+			padding: 20px 30px 20px 30px;
+			color: #D3D3D3;
+			border: none;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			overflow:hidden;
+			position: relative;
+		}
+		.dark-matter h1 {
+			padding: 0px 0px 10px 40px;
+			display: block;
+			border-bottom: 1px solid #444;
+			margin: -10px -30px 30px -30px;
+		}
+		.dark-matter h1>span {
+			display: block;
+			font-size: 11px;
+		}
+		.dark-matter label {
+			display: block;
+			margin: 0px 0px 5px;
+		}
+		.dark-matter span {
+			vertical-align: top;
+			float: left;
+			width: 20%;
+			text-align: right;
+			padding-right: 10px;
+			margin-top: 10px;
+			font-weight: bold;
+		}
+		.dark-matter input[type="text"],.dark-matter input[type="date"], .dark-matter input[type="email"], .dark-matter textarea, .dark-matter select {
+			border: none;
+			color: #525252;
+			height: 25px;
+			line-height:15px;
+			margin-bottom: 16px;
+			margin-right: 6px;
+			margin-top: 2px;
+			outline: 0 none;
+			font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+			padding: 5px 0px 5px 5px;
+			width: 70%;
+			border-radius: 2px;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			background: #DFDFDF;
+		}
+		.dark-matter select {
+			appearance:none;
+			-webkit-appearance:none;
+			-moz-appearance: none;
+			text-indent: 0.01px;
+			text-overflow: '';
+			width: 70%;
+			height: 35px;
+			color: #525252;
+			line-height: 25px;
+		}
+		.dark-matter textarea{
+			height:100px;
+			padding: 5px 0px 0px 5px;
+			width: 70%;
+		}
+		.dark-matter .button {
+			background: #FFCC02;
+			border: none;
+			padding: 10px 25px 10px 25px;
+			color: #585858;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			text-shadow: 1px 1px 1px #FFE477;
+			font-weight: bold;
+			box-shadow: 1px 1px 1px #3D3D3D;
+			-webkit-box-shadow:1px 1px 1px #3D3D3D;
+			-moz-box-shadow:1px 1px 1px #3D3D3D;
+			float: right;
+			margin-right: 33px;
+			margin-bottom: 20px;
+		}
+		.button_top,.button_all,.button_copy,.button_del {
+			background: #FFCC02;
+			padding-left: 10px;
+			padding-right: 10px;
+			border: none;
+			margin-right: 10px;
+			font-size: 10px;
+			color: #585858;
+			border-radius: 4px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			text-shadow: 1px 1px 1px #FFE477;
+			font-weight: bold;
+			box-shadow: 1px 1px 1px #3D3D3D;
+			-webkit-box-shadow:1px 1px 1px #3D3D3D;
+			-moz-box-shadow:1px 1px 1px #3D3D3D;
+			float: right;
+	
+		}
+		.dark-matter .button:hover,.dark-matter .button2:hover {
+			color: #333;
+			background-color: #EBEBEB;
+
+		}
+		table.dataintable {
+			margin-top:15px;
+			border-collapse:collapse;
+			border:1px solid #aaa;
+			width:100%;
+			color: gray;
+		}
+
+		table.dataintable th {
+			vertical-align:baseline;
+			padding:5px 15px 5px 6px;
+			background-color:#3F3F3F;
+			border:1px solid #3F3F3F;
+			text-align:left;
+			color:#fff;
+			}
+
+		table.dataintable td {
+			vertical-align:text-top;
+			padding:6px 15px 6px 6px;
+			border:1px solid #aaa;
+			}
+
+		table.dataintable tr:nth-child(odd) {
+			background-color:#F5F5F5;
+		}
+
+		table.dataintable tr:nth-child(even) {
+			background-color:#fff;
+		}
+
+		.headimg{
+			width: 40px;
+			height: 40px;
+			background: red;
+			position: absolute;
+			z-index: 999;
+			opacity: 0;
+		}
+		images{
+		width: 40px;
+		height: 40px;
+		background-size: cover;
+		display: inline-block;
+		position: absolute;
+		left: 140px;
+		}
+		.mask
+		{
+			width:100%;
+			height: 100%;
+			background: rgba(0,0,0,0.5);
+			position: fixed;
+			left: 0px;
+			z-index: 999;
+			display: none;
+		}
+		.box
+		{
+			width:700px;
+			height: 500px;
+			margin: auto;
+			background:white;
+			border-radius:5px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<!--<div class="mask"><div class="box"></div></div>-->
+	<div class="dark-matter">
+		<h1>留言板</h1>
+		<span>姓名：</span><input type="text" name="name"><br>
+		<span>邮箱：</span><input type="text" name="email"><br>
+		<span>留言：</span><input type="text" style="height: 60px;" name="content"><br>
+		<span>日期：</span><input type="date" name="date"><br>
+		<button id="sendMsg" class="button">留言</button>
+	<table class="dataintable">
+		<tbody>
+			<tr>
+				<th>姓名</th>
+				<th>邮箱</th>
+				<th>内容</th>
+				<th>日期<button class="button_all">批量删除</button></th>
+			</tr>
+			
+			<!-- <tr>				
+					<td><input type="checkbox" name="a">1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1
+						<button class="button2">转发</button>
+						<button class="button2">删除</button>  
+					</td>
+			</tr> -->
+		</tbody>	
+	</table>
+	</div>
+
+</body>
+<script src="./jquery-3.6.0.min.js"></script>
+<script>
+$(function () { 
+	$("#sendMsg").click(function(){
+		 output=
+		`
+		<tr>				
+			<td><input type="checkbox" name="a">${$("input[name=name]").val()}</td>
+			<td>${$("input[name=email]").val()}</td>
+			<td>${$("input[name=content]").val()}</td>
+			<td>${$("input[name=date]").val()}
+				<button class="button_top">置顶</button>
+				<button class="button_copy">转发</button>
+				<button class="button_del">删除</button>  
+			</td>
+		</tr>
+		`
+		$(output).appendTo($("tbody"));
+	})
+	// 事件绑定on写法 on直接写和click是一样的
+	//on可以实现动态委托
+	/* $(".button_all").on("click",function(){
+		console.log("被on了")
+	}) */
+	/* $(".button_del").on("click",function(){
+		console.log("删除")
+	}) */
+
+	//批量删除
+	$("tbody").on("click",".button_all",function(e){
+		//阻止冒泡
+		e.stopPropagation()
+		$("tbody").find("input[checked=checked]").parents("tr").remove()
+	})
+
+	//删除功能
+	$("tbody").on("click",".button_del",function(e){
+		//阻止冒泡
+		e.stopPropagation()
+		$(this).parents("tr").remove()
+	})
+
+	//转发功能
+	$("tbody").on("click",".button_copy",function(e){
+		//阻止冒泡
+		e.stopPropagation()
+		/*
+			clone(true) 克隆节点和所有函数功能
+			clone()不填写或者false克隆节点
+		*/
+		//找到点击这行数据进行克隆，插入到表格第一个节点后面
+		$(this).parents("tr").clone(true).insertAfter($("tbody").children().eq(0))
+	
+	})
+
+	// 置顶功能
+	$("tbody").on("click",".button_top",function(e){
+		//阻止冒泡
+		e.stopPropagation()
+		/*
+			clone(true) 克隆节点和所有函数功能
+			clone()不填写或者false克隆节点
+		*/
+		//找到点击这行数据进行克隆，插入到表格第一个节点后面
+		$(this).parents("tr").clone(true).insertAfter($("tbody").children().eq(0))
+		//将这行数据删除
+		$(this).parents("tr").remove()		 
+		// $("tbody").children().eq(1).replaceWith($(this).parents("tr"))
+	})
+
+	//表格点击变色
+	$("tbody").on("click","tr",function(){
+
+		/*
+	 	读取属性$obj.attr("type")
+	 	移除属性$obj.removeAttr("type")
+ 	    设置属性$obj.attr("type","button")
+ 	    */
+		if($(this).find("input[type=checkbox]").attr("checked")=="checked"){
+			//未选中状态
+			$(this).css("background","white")
+			$(this).find("input[type=checkbox]").removeAttr("checked")			
+		}else{
+			//选中状态
+			$(this).css("background","lightblue")
+			$(this).find("input[type=checkbox]").attr("checked","checked")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+		}
+	})
+
+	
+ })
+</script>
+
+</html>

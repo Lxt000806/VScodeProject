@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+<body>
+    <div id="outer">
+        带有id属性且带有
+        <span>span标签的</span>
+        div
+    </div>
+    <div class="content">
+        带有class属性且带有
+        <span>span标签的</span>
+        div
+    </div>
+</body>
+<script>
+    //原生API中查找DOM元素的操作方法
+    document.getElementById('outer')
+
+    //jQuery根据ID获取元素的方法
+    var d1 = $('#outer')
+    //返回值是一个对象，也是形式上的数组，该数组中有索引值也有对应的长度
+    console.log(d1)
+
+    d1[0].innerText = '不会是事实'
+
+    //将原生的DOM对象转换成jq对象
+    var d1_jq = $(d1[0])
+    d1_jq.text('xxxxx')
+
+    //根据class来获取一组元素
+    var d2 = $('.content')
+    d2[0].innerText = 'xxxxxx'
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //1.filter数组匹配：1、不改变原数组，并且返回一个新的数组； 2、参数可以接收item、index、arr
+    var a = [1, 2, 3, 4, 5];
+    var b = a.filter((item) => {
+        return (item > 3);
+    });
+    console.log(b);
+    //2.every和some的用法
+    // every()是对数组中每一项运行给定函数，如果该函数对每一项返回true,则返回true。
+    //some()是对数组中每一项运行给定函数，如果该函数对任一项返回true，则返回true。
+/*    var arr = [ 1, 2, 3, 4, 5, 6 ];
+    console.log( arr.some( function( item, index, array ){
+        return item > 3;
+    }));
+
+    console.log( arr.every( function( item, index, array ){
+        return item > 3;
+    }));*/
+
+    //3.indexOf方法:返回某个指定的字符串值在字符串中首次出现的位置。
+    /*var str="Hello world!"
+    console.log(str.indexOf("Hello") + "<br />")
+    console.log(str.indexOf("World") + "<br />")
+    console.log(str.indexOf("world"))*/
+    //4.includes方法 用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，
+</script>
+</html>

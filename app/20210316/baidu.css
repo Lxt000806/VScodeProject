@@ -1,0 +1,197 @@
+body,p,h1,h2,h3,h4,ul{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+i{
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+    color: #3c3c3c;
+}
+body{
+    font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;
+    color:#3c3c3c;
+    background-color: #fff;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.fl{
+    float:left;
+}
+
+.fr{
+    float: right;
+}
+.mt10{
+    margin-top: 10px;
+}
+.layer{
+    width: 1000px;
+    margin:0 auto;
+}
+/* sportNews */
+#sportNews .head h2{
+    width: 150px;
+    height: 26px;
+    margin: 0 20px 0 0;
+    padding: 0 10px 0 0;
+}
+#sportNews .head h2 a{
+    font-size: 20px;
+    color: #254282;
+    padding: 0 5px 0 0;
+}
+#sportNews .head h2 span{
+    font-size: 14px;
+    color: #999;
+    vertical-align: middle;
+    font-weight: normal;
+    /* padding: 0 4px 0 0; */
+}
+#sportNews .head hr{
+    margin-top: 12px;
+}
+
+.content .left ul{
+    display: block;
+    width: 385px;
+    height: 171px;
+    /* position: fixed; */
+    position: relative; 
+    margin: 5px 0;
+    padding: 0 0 6px;
+}
+.content .left ul li{
+    font-size: 14px;
+    color: #222;
+    line-height: 27px;
+
+    white-space:nowrap; 
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.content .left ul li .item1{
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.content .left ul li a:hover,.content .right li a:hover{
+    text-decoration: underline;
+    color: #369;
+}
+.content .middle{
+    width: 240px;
+    height: 344px;
+    margin-left: 420px;
+    position: absolute;
+}
+.content .middle h3{
+    margin: 3px 0;
+    padding: 0 0 6px;
+    color: #254282;
+}
+.content .middle .top{
+    font-size: 0;
+}
+.content .middle .top a img{
+    width: 240px;
+    height: 155px;
+    border: 0;
+}
+.content .middle .top a i{
+    display: inline-block;
+    width: 240px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;   
+    color: #000;
+    font-family: '宋体';
+    background-color: #f6f7f8;
+    text-align: center;
+    margin: 0px;
+}
+.content .middle .top a i:hover{
+    color: #fff;
+    background-color: #3064bb;
+}
+
+.content .middle .bottom{
+    font-size: 0;
+    width: 240px ;
+    height: 118px;
+    margin-top: 16px;
+}
+.content .middle .bottom a img,.middle .bottom a{
+    width: 112px;
+    height: 84px;
+
+}
+
+.content .middle .bottom a i{
+    overflow: hidden;
+    display: inline-block;
+    width: 112px;
+    height: 30px;
+    padding: 2px 2px;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: left;
+    word-break: break-all;
+    color: #222;
+    background-color: #f6f7f8;
+}
+.content .middle .bottom a i:hover,.content .right a i:hover{
+    color: #fff;
+    background-color: #3064bb;
+}
+
+
+.content .right h3{
+    margin: 5px 0;
+    color: #254282;
+    padding: 0 0 6px;
+}
+.content .right a{
+    width: 136px;
+    font-size: 0;
+    margin-right: 15px;
+    margin-bottom: 25px;
+}
+.content .right a img{
+    width: 136px;
+    height: 90px;
+}
+.content .right a i{
+    overflow: hidden;
+    display: inline-block;
+    height: 30px;
+    padding: 2px 2px;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-all;
+    color: #222;
+    background-color: #f6f7f8;
+}
+.content .right li{
+    width: 290px;
+
+    white-space:nowrap; 
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.content .right li a{
+    font-size: 14px;
+    color: #222;
+    line-height: 27px;
+}

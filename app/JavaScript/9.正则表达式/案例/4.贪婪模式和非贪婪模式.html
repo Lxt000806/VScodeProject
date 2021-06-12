@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <!-- 正则贪婪模式  -->
+</body>
+<script>
+    /*
+        .replace 替换
+        .test    匹配，返回true、false
+        .match   匹配字符串，匹配到的内容存入一个数组
+    */
+    // 
+    let string="abcd"
+    let myarray=string.match("a")
+    console.log(myarray)
+
+    //贪婪模式
+    // ？表示0-1次，终结贪婪模式
+    let string="<div>歌手:</div><div>周杰伦</div><div>专辑:</div><div>八度空间</div>"
+    let reg=/<div>.+?<\/div>/g
+    let myarray=string.match(reg)
+    console.log(myarray)
+
+</script>
+</html>

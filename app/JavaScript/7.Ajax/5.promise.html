@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    resolve表示成功，用.then()接收
+    reject表示失败，用.catch()接收；
+    catch不仅仅可以捕捉到上一级的失败信息，也可以捕捉到兄弟层次的失败信息
+    resovle可以带出promise的信息
+    */
+    let mypromise = new Promise(function(resovle,reject){
+        resovle() //表示promise成功执行
+    }).then(function(){
+        console.log("成功")
+    }).catch(function(){
+        console.log("失败了")
+    })
+</script>
+</html>

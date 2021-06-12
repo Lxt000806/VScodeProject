@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>验证邮箱</title>
+
+</head>
+<body>
+请输入您的邮箱(检测用户输入的是不是邮箱):<br/>
+<input type="text" value="" id="email" />
+<script>
+// 一串英文或者数字 @ 一串英文或者数字 (.一串英文)1-2次
+email.onblur=function() //onblur失去焦点，onfocus有焦点
+{
+    let v1=email.value;
+    let reg=/^[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}$/
+    if(reg.test(v1))
+    {
+      this.style.background="green"
+    }
+    else
+    {
+      this.style.background="red"
+    }
+} 
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //命名函数：命名了一个叫做test的函数
+    function test(){
+        console.log("test")
+    }
+
+    //匿名函数
+    let a = function(){
+        console.log("a")
+    }
+
+    //匿名函数带参数情况
+    let b = function(x){
+        console.log(x)
+    }
+    b("这个是参数")
+
+    //匿名函数为了简写可以用=》
+    let c =(x)=>{
+        console.log(x)
+    }
+    c("这个是箭头函数")
+
+    //箭头函数如果只有一个参数，我们可以去掉（）
+    // 箭头函数如果只有一行代码，可以去掉{}
+    // 箭头函数如果只有一行代码，还可以省去return
+    //箭头函数可以保存this的作用域
+    let d = x=>console.log(x)
+    d("这个是箭头函数的简写")
+</script>
+</html>

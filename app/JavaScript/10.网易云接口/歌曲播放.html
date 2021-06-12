@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .roll
+        {
+            width: 120px;
+            height: 120px;
+            border-radius:50%;
+            background: radial-gradient(green,skyblue)
+        }
+    </style>
+</head>
+<body>
+    <!-- <audio> 播放歌曲
+        <video> 播放视频-->
+    <audio id="au" controls  src="http://m701.music.126.net/20190812113141/640b3817e8b6288b8bb3eb7d5b2f66c1/jdyyaac/560c/545b/0608/af7e4cba02c1c3b815e61bbc6cad2fd8.m4a"></audio> 
+    <div id="p" class="roll"></div>
+    <button id="z">暂停</button><br>
+    <input id="i" type="range" value="0"> //进度条通过value来控制
+</body>
+<script>
+    p.onclick=function()
+    {
+        au.play()
+    }
+    z.onclick=function()
+    {
+        au.pause()
+    }
+    au.onloadedmetadata=function() //整首歌加载完毕
+    {
+        console.log(au.duration) //播放的持续时间
+        
+    }
+    au.ontimeupdate=function()
+    {
+       i.value=100*au.currentTime/au.duration 
+       console.log(i.value)
+    }
+    // onchange鼠标松开 检测变化
+
+    i.oninput=function() //实时监测变化
+    {
+        au.currentTime = this.value*au.duration/100  
+    }
+
+</script>
+</html>

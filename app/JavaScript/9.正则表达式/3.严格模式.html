@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- 只能匹配5个数字 -->
+<script>
+let string="abcd1234567"
+let string2="12345"
+// 严格模式
+let reg=/^\d{5}$/
+console.log(reg.test(string))
+console.log(reg.test(string2))
+</script>
+</html>

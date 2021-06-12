@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    fetch("login.php",{
+        method:"POST",
+        mode:"cors",
+        headers:new Headers({
+            // "Accept":客户端接收的数据类型,
+            // "Content-Type":客户端发送的数据类型
+            "Accept":"application/json",
+            "Content-Type":"application/json"
+        })
+
+    })
+</script>
+</html>

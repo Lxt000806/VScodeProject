@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>百度换肤</title>
+    <style>
+    *{margin:0;padding:0}
+
+    html,body,.box
+    {
+        height: 100%
+    }
+    .top
+    {
+        height: 40px;
+        width: 100%;
+        border-bottom: 1px solid #ebebeb;
+        line-height: 40px;
+        text-align: right;
+        position: relative;
+        background: white;
+        z-index: 999
+    }
+
+    .top span
+    {
+        padding-right: 30px;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+    
+    .mid
+    {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .mid input{
+
+        width: 500px;
+        height: 40px;
+        border:1px solid #3388ff;
+    }
+
+    .mid button
+    {
+        width: 120px;
+        height: 42px;
+        background: #3388ff;
+        border:none;
+        position: relative;
+        top: 1.5px;
+        color:white;
+
+    }
+    a,a:hover
+    {
+        color: #000
+    }
+
+    .pf
+    {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        border-bottom: 1px solid #ebebeb;
+        box-shadow: 1px 1px 15px #b7b7b7;
+        text-align: center;
+        line-height: 250px;
+        top: -250px;
+        /* top */
+    } 
+    </style>
+    
+    
+
+</head>
+<body>
+<div class="box" id="box">
+
+
+       <div class="top"><span>新闻</span> <span>好123</span> <span>地图</span> <span>视频</span> <span>贴吧</span> <a href="#"><span id="hf">收起</span></a></div>
+        
+<!-- java1234 -->
+       <div class="pf" id="pf">
+             <img src="images/1.jpg" alt="" width="150" id="pic1"/>
+             <img src="images/2.jpg" alt="" width="150" id="pic2"/>
+             <img src="images/3.jpg" alt="" width="150" id="pic3"/>
+       </div>
+        
+       <div class="mid">
+           <img src="images/bd.png"><br>
+           <input type="" name=""><button>百度一下</button>
+       </div>
+
+</div>
+
+</body>
+<script>
+  let flag=0 //标记，奇数次下拉，偶数次上升
+  let timer
+  let pf=document.querySelector(".pf")
+  let btn=document.querySelector("#hf")
+/*   innerHTML：获取div标签内的内容
+     .value ：获取input标签，textarea标签（多行输入框）内的内容；与表单相关联的，尽量使用value
+     
+     setInterval(go,20)  每隔20毫秒执行一次go函数
+     setTimeout(go,20)  20毫秒后执行一次go，只会执行一次  
+
+     parseInt()  强制转换为整型，可以把字符串后的单位去除
+     obj.style.top 读取的是div标签内的行内样式（需要标签内有定义样式，才能读取，否则读取为空），可以在脚本更改样式
+     window.getCOmputedStyle() 外部引入样式读取
+     引入样式在脚本里是不允许更改的；
+     行内样式可以在脚本里更改，因为页面一旦关闭，脚本里更改的样式就会清除，不会影响外部引入的样式表
+     
+*/
+
+  function $(el){ //对document.querySelector()函数进行封装
+    return document.querySelector(el)
+  }
+
+  btn.onclick=function(){
+    // this指代的是事件的发起者btn
+    flag++
+    if(flag%2==1){
+        // 奇数次，下拉
+        this.innerHTML="下拉"
+        gogo(pf,10,0)
+    }
+    else{
+      //偶数次，  上升
+        this.innerHTML="收起"
+        gogo(pf,-10,-250)
+        
+    }
+  }
+
+  function gogo(obj,speed,target){     
+        
+        clearInterval(timer) //使用serInterval之前，先习惯性清除一次
+        timer=setInterval(go,20)
+        function go(){  
+          obj.style.top=parseInt(window.getComputedStyle(obj).top)+speed+"px"         
+          if(parseInt(obj.style.top)==target){          
+            clearInterval(timer)
+          }
+        }
+  }
+  
+  changeImg( $("#pic1"),"1.jpg")
+  changeImg( $("#pic2"),"2.jpg")
+  changeImg( $("#pic3"),"3.jpg")
+
+  function changeImg(btn,img)
+  {
+        btn.onclick=function(){
+            document.body.style.background="url(images/"+img+") no-repeat"
+        }
+  }
+        
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+</body>
+<script>
+    //闭包：访问到不同作用域的变量和环境,延长局部变量的生命周期
+    function fn(){
+        let timer = 10;
+        return function(){
+            return timer
+        }
+    }
+    let f1 = fn()
+    console.log(fn())
+
+
+    //基本闭包写法1
+    function random_num(){
+        //0-1之间的数
+        let num = Math.random();
+        return function(){
+            return num
+        }
+    }
+    let f2 = random_num()
+    //调用的都是同一个数字
+    console.log(f2())
+    console.log(f2())
+    console.log(f2())
+
+    //基本闭包写法2
+    let btn = document.querySelectorAll('button');
+    for(i=0;i<5;i++){
+        btn[i].onclick = (function(ag){
+            return function(){
+                console.log(ag)
+            }        
+        })(i)
+    }
+
+    //立即执行函数
+    (function(){console.log(1)}());
+</script>
+</html>

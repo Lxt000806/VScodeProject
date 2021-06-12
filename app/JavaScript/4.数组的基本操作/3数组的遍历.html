@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let myarray=[4,1,2,3,5]
+
+    /*
+        数组的遍历:
+        for  
+        forEach  
+        for of  遍历value
+        for in  遍历索引
+    */
+    for(i=0;i<myarray.length;i++){
+        console.log(myarray[i])
+    } 
+    myarray.forEach( function(value,index,arr){})
+
+    // 数组的停止遍历
+    for(i=0;i<myarray.length;i++){
+       if(myarray[i]==3){
+         break;//停止整个循环
+        //  continue;停止当前循环，跳入下一循环
+       }
+    } 
+
+    // forEach循环根本停不下来
+    myarray.forEach(function(value,index,arr){
+        if(value==3){
+           return //跳出，接着遍历
+        }
+        console.log(value)
+    }) 
+
+    myarray.find(function(value){
+       if(value>3){
+         console.log(value) //输出满足条件的元素
+       } 
+    })
+
+    for(let value of myarray){
+        console.log(value) //输出元素值
+    }
+    
+    for(let index in myarray){
+        console.log(index) //输出索引
+    }
+
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* let reg1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/ */
+
+/* 
+ 18位置身份证规则: 
+    1、第一位不为0
+    2.第七位开始出生日期
+    3.最后以为可以是数字也可以是X
+*/
+let reg2=/^[1-9]\d{5}[1-9]\d{3}((0[1-9])|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/
+let shengfengzheng18="35070219870924897X"
+console.log(reg2.test(shengfengzheng18))
+</script>
+</html>

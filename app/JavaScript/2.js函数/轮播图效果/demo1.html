@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style:none;}
+        #box {
+            height: 70px;
+            width: 360px;
+            padding-top: 360px;
+            border:1px solid #ccc;
+            margin:100px auto;
+          
+            background: url(images/01big.jpg) no-repeat;
+        }
+        #box ul{
+            overflow: hidden;
+            border-top:1px solid #ccc;
+        }
+        #box li {
+            float: left;
+
+        }
+        
+    </style>
+
+</head>
+<body>
+
+<div id="box">
+    <ul>
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/05.jpg" alt=""/></li>
+    </ul>
+  <!--   小图点击过后，id=box盒子的background变为01big.jpg/02big.jgp -->
+</div>
+
+</body>
+<script>
+
+    let box=document.querySelector("#box")
+    let num=1
+    let timer=setInterval(lunbo,2000)
+    let myli=document.querySelectorAll("li"); //querySelectorAll拿到的是数组
+
+
+    //点击换图
+    for(let i=0;i<myli.length;i++){
+
+        myli[i].onclick=function(){
+            num = i; //保证轮播图从点击后的一张图片自动切换
+            /* +
+            数字和数字在一起是加
+            数字和字符串在一起是连字符
+            字符串和字符串在一起是连字符 */
+            box.style.background="url(images/0"+(i+1)+"big.jpg) no-repeat"
+        }
+    }
+
+    //自动轮播换图
+    function lunbo(){
+        num++
+        box.style.background="url(images/0"+num+"big.jpg) no-repeat"
+        if(num==5){
+            num=0
+        }
+    }
+
+    /* onclick鼠标点击
+       onmouseover鼠标移入
+       onmouseout鼠标移出 
+    */
+    box.onmouseover=function(){
+        clearInterval(timer)
+    }
+    box.onmouseout=function(){
+      timer=setInterval(lunbo,2000)
+    }
+</script>
+</html>

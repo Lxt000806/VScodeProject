@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .wrap {
+            width: 1010px;
+            margin: 100px auto 0;
+        }
+        .wrap li{
+            width: 200px;
+            height: 400px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="animate.js"></script>
+<script>
+    var myli=document.querySelectorAll(".wrap>ul>li");
+    for(i=0;i<myli.length;i++)
+    {
+        myli[i].style.background="url(images/"+(i+1)+".jpg) no-repeat"
+        myli[i].onmouseenter=function()
+        {
+            for(j=0;j<myli.length;j++)
+            {
+                animate(myli[j],100,2,"width")
+            }
+                animate(this,600,2,"width")
+        }
+
+        myli[i].onmouseleave=function()
+        {
+            for(j=0;j<myli.length;j++)
+            {
+                animate(myli[j],200,2,"width")
+            }
+        }
+    }
+</script>
+</body>
+</html>

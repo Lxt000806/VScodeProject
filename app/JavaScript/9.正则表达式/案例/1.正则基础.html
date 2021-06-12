@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    /*
+        1.常见匹配符：
+            g 替换所有(全局) 
+            i 忽略大小写
+    */
+    let s1="猥琐发育，别浪~,猥琐塔下清兵！";
+    let reg=/猥琐/g; //将匹配所有的"猥琐"
+    console.log(s1.replace(reg,"健康"));
+
+    let s2="call AaAAAaaA";
+    console.log(s2.replace(/A/ig,"B"));
+
+
+    /*
+        2.[]范围匹配，|是多个匹配选择
+    */
+   let s3="hello ,我是tom，my age是18岁";
+   console.log(s3.replace(/[a-zA-Z0-9]/g,"*"));
+   
+   let s4="法轮功是一种邪教组织，容易让人走入邪魔外道，坚决杜绝法轮功邪教组织";
+   console.log(s4.replace(/法轮功|邪教/g,"*"));
+
+
+    /*
+        3.\d代表数字          \D非数字  （大小写是取反的意思）
+          \s代表空格符        \S表示非空格符
+          \w非特殊字符(含_)   \W特殊字符
+   */
+   let s5="akjk23423l979llkkjkl20";
+   console.log(s5.replace(/\d/g,"*")); //将数字全局替换成*
+
+   let s6="akjk23423l979llkkjkl20";
+   console.log(s6.replace(/\D/g,"*"));
+
+   let s7="akjk23&I^&*79llkkj_kl20";
+   console.log(s7.replace(/\W/g,"*"));
+
+    /*
+        *表示0次到多次，
+        +表示1次到多次，
+        ？表示0次到1次 
+        .表示除了回车以外的任意字符
+    */
+   /*
+        5.^放在开头表示起始位置，放在[]内部表示取非，$表示结尾，严格模式：^ $
+        { }表示出现的次数, {0,3}表此出现0次到3次
+        test表示匹配，replace替换 
+        非严格模式匹配：只要匹配到一次就是true
+   */
+
+    //正则练习题
+       console.log(/./.test("除了回车"));
+       console.log(/.*/.test("0个到多个"));
+       console.log(/.+/.test("1个到多个"));
+       console.log(/.?/.test("哈哈"));
+       console.log(/[0-9]/.test("9527"));
+       console.log(/[a-z]/.test("what"));
+       console.log(/[A-Z]/.test("Are")); 
+       console.log(/[a-zA-Z]/.test("干啥"));
+       console.log(/[0-9a-zA-Z]/.test("9ebg"));
+       console.log(/b|(ara)/.test("abra"));
+       console.log(/[a-z]{2,3}/.test("argsf"));
+       console.log(/\d/.test("998"));
+       console.log(/\d*/.test("998"));
+       console.log(/\d+/.test("998"));
+       console.log(/\d{0,}/.test("998"));
+       console.log(/\d{2,3}/.test("998"));
+       console.log(/\D/.test("eat"));
+       console.log(/\s/.test("  "));
+       console.log(/\S/.test("嘎嘎"));
+       console.log(/\w/.test("_"));
+       
+       console.log(/\W/.test("_"));
+</script>
+</html>

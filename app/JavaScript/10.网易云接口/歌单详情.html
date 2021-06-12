@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歌单详情</title>
+</head>
+<body>
+    
+</body>
+<script>
+let string=location.search
+let reg=/(?<=\?id=)\d+/ //零宽后断
+let urlId=string.match(reg).toString()
+fetch("http://localhost:3000/playlist/detail?id="+urlId,{
+
+        method:"GET",
+        mode:"cors"
+})
+.then(r=>r.json())
+.then(data=>{
+    console.log(data.playlist.tracks.forEach(value=>{
+        console.log(value)
+    }))
+})
+</script>
+</html>

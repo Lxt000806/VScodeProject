@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加品牌</h3>
+        </div>
+        <div class="panel-body form-inline">
+            <label>
+                序号:
+                <input id="myid" type="text" class="form-control">
+            </label>
+
+            <label>
+                品牌:
+                <input id="myband" type="text" class="form-control">
+            </label>
+
+
+            <label>
+                库存:
+                <input id="mynum" type="text" class="form-control">
+            </label>
+
+            <input id="mybtn" type="button" value="添加" class="btn btn-primary">
+
+            <label>
+                搜索名称关键字：
+                <input type="text" class="form-control" id="search">
+            </label>
+            <input id="mysearch" type="button" value="搜索" class="btn btn-primary">
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>品牌</th>
+            <th>库存</th>
+            <th>删除</th>
+            <th id="sx">升序</th>
+        </tr>
+        </thead>
+        <tbody id="mytbody">
+        <tr>
+            <td>测试序号</td>
+            <td>测试品牌</td>
+            <td>测试库存</td>
+            <td>测试删除</td>
+            <td>测试排序</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script> 
+  
+   let myarray=
+   [
+       {"id":1,"band":"宝马","num":100},
+       {"id":2,"band":"宝骏","num":30},
+       {"id":3,"band":"奔驰","num":600},
+       {"id":4,"band":"奔奔","num":500},
+   ]
+let myid=document.querySelector("#myid")
+let myband=document.querySelector("#myband")
+let mynum=document.querySelector("#mynum")
+let mybtn=document.querySelector("#mybtn")
+let mytbody=document.querySelector("#mytbody")
+let btn=document.querySelector("#sx")
+let s_btn=document.querySelector("#mysearch")
+let s_input=document.querySelector("#search")
+mybtn.onclick=function()
+{
+    let content=
+        {
+        "id":myid.value,
+        "band":myband.value,
+        "num":mynum.value
+        }
+    myarray.push(content);
+    getinfo(myarray)
+  
+}
+
+    getinfo(myarray)
+   //.属性拿到的是属性值
+  // console.log(myarray[0].band)
+  function getinfo(arr){
+    let output=""
+    arr.forEach(function(value,index,arr){      
+            output+=
+            /* ${}这个里面是放变量的
+            放在里面就会变为变量
+            而不是字符串 */
+            `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.band}</td>
+                    <td>${value.num}</td>
+                    <td><button onclick="del(${index})">删除</button></td>
+                    <td>${value.id}</td>
+                </tr>
+            `
+        }) 
+        mytbody.innerHTML=output
+
+        //   等同for(let i=0;i<myarray.length;i++)
+  }
+  
+  function del(x)
+//   x是它的形式参数
+  {
+    myarray.splice(x,1);
+    getinfo(myarray) 
+  }
+  let flag=0
+  btn.onclick=function()
+  {
+      flag++
+      if(flag%2==1)
+      {
+        //第一次点击，奇数次
+        this.innerHTML="降序"
+        myarray.sort(function(x,y){
+            if(x.num<y.num)
+        {
+            return -1
+        }
+        if(x.num==y.num)
+        {
+            return 0
+        }
+        if(x.num>y.num)
+        {
+            return 1
+        }
+
+        })
+        getinfo(myarray)
+    }
+      else
+      {
+          //第二次点击  偶数次
+          this.innerHTML="升序"
+          myarray.sort(function(x,y){
+            if(x.num<y.num)
+        {
+            return 1
+        }
+        if(x.num==y.num)
+        {
+            return 0
+        }
+        if(x.num>y.num)
+        {
+            return -1
+        }
+          })
+
+          getinfo(myarray)
+
+      }
+
+  }
+  
+  s_btn.onclick=function()
+  {
+    let mynewarray=new Array()
+    
+     myarray.forEach(function(value,index,arr){
+        if(value.band.includes(s_input.value))
+        {
+           mynewarray.push(value)
+        }
+     })
+     getinfo(mynewarray)
+     
+  }
+/*   includes   数组是否包括一个元素
+  字符串是否包括一个字符串
+  includes能不能检测对象是否包括一个属性
+   */
+</script>
+</body>
+</html>

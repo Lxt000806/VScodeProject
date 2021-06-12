@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // random()-0.5
+    let myarray=[
+        {num:12,age:1,name:"aa"},
+        {num:15,age:2,name:"bb"},
+        {num:9,age:3,name:"cc"},
+    ]
+
+    myarray.sort(function(x,y){
+        if(x.age<y.age)
+        {
+            return -1
+        }
+        if(x.age==y.age)
+        {
+            return 0
+        }
+        if(x.age>y.age)
+        {
+            return 1
+        }
+
+    })
+    console.log(myarray)
+</script>
+</html>

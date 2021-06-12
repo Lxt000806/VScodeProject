@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 零宽断言  -->
+</body>
+<script>
+    // （ ）要删掉的内容; (?<=)  (?=)
+    //零宽后断言(把后面的截取出来)
+    let string="中国人日本人美国人中国人";
+    let reg=/(?<=中国)人/g;
+    let myarray=string.match(reg)
+    console.log(myarray)
+
+    //零宽前断言(把前面的截取出来)
+    let s="AB123uiuiouAB7878werABiui";
+    let r=/AB(?=\d+)/g;
+    let yourArray=s.match(r)
+    console.log(yourArray)
+</script>
+</html>

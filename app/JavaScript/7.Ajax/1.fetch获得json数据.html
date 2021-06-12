@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color: aquamarine;
+    }
+</style>
+<body>
+    <h1></h1>
+</body>
+<script>
+    /*
+    1.如果在js里面，{}叫做对象
+    2.如果在json里面，{}叫做json数据;json里不能写备注
+    3.接收数据并且把它放到页面上的过程叫做渲染
+    */
+   let h1 = document.querySelector("h1")
+    fetch("http://localhost:3000/redai",{
+        method:"GET",//GET代表拿取数据
+        mode:"cors" //mode跨域；只要是域名、端口、协议不同，都算跨域
+    }).then(function(response){
+        if(response.status==200){
+            return response.json() //把response的数据流转换为文本
+        }
+    }).then(function(data){
+        data.forEach(function(value,index,arr){
+            document.body.innerHTML += 
+            `
+            <div>${value.name}----${value.price}</div>
+
+            `
+        })
+    })
+
+    
+</script>
+</html>

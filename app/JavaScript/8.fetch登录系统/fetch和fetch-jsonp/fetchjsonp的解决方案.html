@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 需要引入fetchjsonp插件 -->
+    <script src="fetchjsonp.js"></script>
+</head>
+<body>
+text   json forEeah
+xml html=>text=> new DomParser
+js   jsonP
+</body>
+<script>
+    fetchJsonp("http://127.0.0.1/ajax/data.js",{
+        method:"GET",
+        jsonpCallbackFunction:"call_back"
+    })
+        .then(function(r){
+            return r.json() //转成json格式
+        })
+        .then(function(data){
+            console.log(data.name)
+        })
+
+</script>
+</html>
+<!--
+总结：
+1.cors的跨域，  jsonp的跨域
+1、cors更新，不一定所有浏览器和服务器都支持
+2.jsonp性能比较弱，他只能模拟get请求
+3.jsonp不能支持多个异步操作 cors支持多个
+4.如果你都不知道，怎么办
+5.fetch jsonp  jq  $fetch和fetch-jsonp
+axios-->
+
+
+
+<!--jsonp和cors的区别
+1、JSONP只能实现GET请求，而CORS支持所有类型的HTTP请求
+2、使用CORS，开发者可以使用普通的XMLHttpRequest发起请求和获得数据，比起JSONP有更好的错误处理
+3、JSONP主要被老的浏览器支持，它们往往不支持CORS，而绝大多数现代浏览器都已经支持了CORS
+4、JSONP只会发一次请求；而对于复杂请求，CORS会发两次请求。-->
+
+
+
+

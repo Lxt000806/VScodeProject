@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./art-template.js"></script>
+    <script src="./data.js"></script>  
+    <style>
+        body,p,h1,h2,h3,h4,ul{
+            margin: 0;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img{
+            border: none;
+            vertical-align: middle;
+        }
+
+        a{
+            text-decoration: none;
+            color: #3c3c3c;
+        }
+
+        i{
+            font-style: normal;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        #list{
+            padding: 20px 200px;
+            
+        }
+        .box{
+            height: 550px;
+            float: left;
+            margin: 40px 10px;
+        }
+        .box img{
+            width: 410px;
+            height: 500px;
+        }
+        .box p{
+            width: 410px;
+            margin: 10px 0;
+        }
+        .box span{
+            background-color: #ffe4dc;
+            /* padding: 0 10px 0 20px; */
+            padding: 0 2px 1px 2px;
+            margin-right: 5px;
+            border-radius: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+        </li>
+    </ul>
+</body>
+<script id="temp" type="text/html">
+    <a href="{{ h5GoodUrl }}">
+        <div class="box">
+            <img src="{{ image }}" alt="">
+            <p>
+                {{each props as value}}
+                <span>{{value}}</span>
+                {{/each}}
+            </p>
+            <span class="fl">￥{{price}}</span>
+            <span class="fr">{{collectNum}}点赞</span>
+        </div>
+    </a>
+</script>
+<script>
+    var htmlStr = ''
+    for(var i=0;i<list.length;i++){
+        htmlStr += template('temp',list[i])
+    }
+
+    document.querySelector("#list").innerHTML = htmlStr
+</script>
+</html>

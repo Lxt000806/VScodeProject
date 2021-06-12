@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let myarray=["a","b","c","d"]
+    // e指代的就是数组的元素
+    myarray.findIndex(function(e){
+       
+        console.log("我正在循环")
+        if(e=="c")
+        {
+            return true  //return true 跳出循环
+        }
+       
+    })
+
+    /*     
+       find 定位元素  
+       findIndex定位索引
+       includes 匹配元素   
+       indexof 匹配元素并反馈索引 
+    */
+
+
+    // map=>映射
+    // map最经常做的就是数组的复制
+    // ajax
+    let mya2=["a","b","c","d"]
+    let mya3=[]
+
+   //按照原来数组的个数进行循环映射
+   mya3= mya2.map(function(e){ 
+       // e指代的就是数组的元素
+        return e
+    })
+    console.log(mya3)
+</script>
+</html>
