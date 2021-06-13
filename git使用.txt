@@ -1,7 +1,20 @@
-git add .
-git commit -m ""
+echo "# eclipse_workspace" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Lxt000806/eclipse_workspace.git
 git push -u origin main
-git@github.com:Lxt000806/VScodeProject.git 
+
+
+git remote add origin https://github.com/Lxt000806/eclipse_workspace.git
+git branch -M main
+git push -u origin main
+
+git remote set-url origin https://github.com/xmanrui/autoftp.git 修改提交方式为https
+
+
+------------------------------------------------------------------------------------------------------------
 
 1、 mkdir gitRepo #如果是已存在的工程项目，则直接cd到项目根目录下，不需要新建。
 
@@ -31,5 +44,4 @@ git@github.com:Lxt000806/VScodeProject.git
 11)git merge develop --squash #压缩合并develop分支上的代码 
 12)git commit -a -m &quot;XXXX&quot; #注意需要进行一次提交 
 13)git push #推送到远程
-
-修改部分
+---------------------------------------------------------------------------------------------------------------------------
