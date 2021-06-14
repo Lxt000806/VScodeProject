@@ -1,0 +1,249 @@
+.bannermain{
+    width:95%;
+    margin: 0 auto;
+}
+html{
+    scroll-behavior: smooth;
+}
+#imags{
+        width:100%;
+        height: 306px;
+}
+.imags{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.lists li{
+    width:100%;
+    height: 550px;
+    box-shadow:1px 2px 3px rgba(102, 94, 94, 0.575) ;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+.titles{
+    
+    height: 150px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.titles h2{
+   
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(133, 58, 219, 0.548);
+}
+.titles p{
+    line-height: 25px;
+    color: slategray;
+}
+.rightmain{
+    display: none;
+}
+.mainlis img{
+    width: 100%;
+
+}
+.mainlis li{
+    width:100%;
+    height: 500px;
+    box-shadow: 2px 3px 4px slategray;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+.box{
+  
+    width: 80%;
+    margin: 0 auto ;
+    
+}
+.lisbtn{
+    margin: 40px;
+    display: flex;
+    
+    justify-content: space-around;
+    
+}
+.box a{
+    color: rgba(95, 90, 90, 0.933);
+    display: block; 
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+  
+}
+.lisbtn li:hover{
+    background-color: rgb(239, 224, 253);
+}
+.lisbtn li{
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(185, 182, 187);
+    text-align: center;
+    
+}
+@media only screen{
+    @media (min-width:649px){
+        .bannermain{
+            width: 88%;
+            margin: 0 auto;
+        }
+        .lists{
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-around;
+        }
+        .lists li{
+           
+            box-shadow:1px 2px 3px rgba(102, 94, 94, 0.575) ;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .title{
+            width: 60%;
+        }
+        .listtext li{
+            height: 50px;
+        }
+        .listst li{
+            width: 200px;
+            height: 600px;
+            box-shadow: 1px 2px 3px #5555;
+        }
+        .rightmain{
+            width: 35%;
+            display:block;
+        }
+        .bannermain{
+            display: flex;
+            justify-content: space-between;
+        }
+       .texts img{
+           width: 100%;
+           margin: 10px;
+       }
+       .dingyue{
+           width: 100%;
+           height: 200px;
+           border-radius: 20px;
+           background-color: #eeee;
+           text-align: center;
+           display: flex ;
+           flex-flow: column;
+           justify-content: space-around;  
+           margin: 10px; 
+       }
+       .box2{
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-image: url(../Booklistimg/trump_run.png);
+        animation: sun 1s steps(6) infinite;
+    }
+       .dingyue h2{
+           font-size: 20px;
+           font-weight: 600;
+           color: rgba(105, 136, 238, 0.664);
+           line-height: 30px;
+       }
+       .dingyue p{
+           font-size: 18px;
+           color: rgb(95, 73, 73);
+       }
+       .textadd a{
+           color: rgba(37, 37, 37, 0.973);
+           font-size: 20px ;
+           font-weight: 600;
+       }
+       .listtext a{
+           color: #111;
+       }
+       .bannermain a{
+           color: rgba(20, 20, 20, 0.568);
+       }
+       .bannermain a:hover{
+           color: violet;
+       }
+    .titles{
+        margin:40px 20px;
+    }
+
+
+
+
+       .set{
+           width:100%;
+           height:560px;
+           border-top:1px solid rgb(244, 244,244);
+           /* box-shadow: 1px 2px 3px #5555; */
+        
+       }
+      
+       .h1{
+           /* 将标题转换为行内块元素 */
+           display:inline-block;
+           padding: 10px 0;
+           border-top: 1px red solid;
+           margin-top: -1px;
+          font-size: 20px;
+          font-weight: 600;
+           
+       }
+      
+       .ben {
+           /* 让第一行的新闻标题，显示在图片中 */
+           /* margin-top: 30px; */
+          
+           font-weight: bold;
+           padding-left:20px;
+       }
+       .ben a{
+            font-size: 20px;
+           
+       }
+       .img{
+
+           width:100%;
+           height:200px;
+          
+       }
+
+       .main>li::before{
+           content:'■';
+           color:rgb(219, 214, 214);
+           font-size: 12px;
+       }
+       .main li {
+           font-size: 14px;
+          height: 50px;
+       }
+      .main li a{
+          line-height: 20px;
+          padding-left:10px; 
+          color:rgb(94, 87, 86);
+          font-size: 18px;
+       }
+       .mainlis{
+           display: flex;
+           flex-flow: wrap;
+           justify-content: space-around;
+       }
+       .lisp{
+           width: 100%;
+       }
+       .mainlis li{
+        width:300px;
+        height: 500px;
+        box-shadow: 2px 3px 4px slategray;
+        margin-bottom: 20px;
+        text-align: center;
+        
+    }
+    }
+}
+
+        

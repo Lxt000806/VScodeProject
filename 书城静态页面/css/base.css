@@ -1,0 +1,76 @@
+.clearfix::before,
+        .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+        }
+
+@keyframes scroll{
+        from{
+       margin-top: 90px;
+
+        }
+        to{
+               margin-top: 100px;
+        }
+}
+
+@keyframes abily{
+        0%{
+                transform: rotateY(0);
+
+        }
+        100%{
+                transform: rotateY(360deg);
+        }
+}
+@keyframes more{
+        0%{
+                transform: rotateZ(0deg);
+        }
+        100%{
+                transform:rotateZ(360deg); 
+        }
+}
+@keyframes booktop{
+        0%{
+                margin-top: 20px;
+        }
+        100%{
+                margin-top:50px;
+        }
+}
+.w{
+        width: 80%;
+        margin: 0 auto;
+}
+@keyframes sun{
+        from{
+            background-position: 0 0;
+        }
+        to{
+            background-position:-600px 0;
+        }
+    }
+
+    .topback{
+        height:0px;
+        width: 60px;
+        display: block;
+        background-position: center center;
+        background-image: url("../index-img/向上.png");
+        background-repeat: no-repeat;
+        background-size:30px 30px ;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px #838588;
+        position: fixed;
+        transition: .3s;
+        left: auto;
+        right:10px;
+        top: 80%;
+        z-index: 9999;
+    }
+    /* 回到顶部hover */
+    .topback:hover{
+        background-color: rgb(170, 212, 233);
+    }

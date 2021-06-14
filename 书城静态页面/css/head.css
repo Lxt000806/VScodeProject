@@ -1,0 +1,272 @@
+.empty{
+    height: 107px;
+}
+.search{
+    height: 0px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #363B43;
+    text-align: center;
+    justify-content: center;    
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    transition: .6s;
+}
+#cancel{
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: -92%;
+    top: -60px;
+}
+.cancel li{
+    position: absolute;
+    height:1px;
+    width: 30px;
+   
+    background-color: #fff;
+    transform-origin: left center;
+   
+}
+.cancel li:nth-child(1){
+    top: 5px;
+   transform: rotateZ(45deg);
+}
+.cancel li:nth-child(2){
+    top: 27px;
+    transform: rotateZ(-45deg);
+}
+#put{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #494E57;
+    width: 80%;
+    line-height: 50px;
+    font-size: 20px;
+    outline: none;
+}
+#put:focus{
+    color: #fff;
+}
+#ser{
+    font-size: 20px;
+    color:#9A9DA1 ;
+}
+.content{
+    position: absolute;
+    right:50px;
+    height: 18px;
+    bottom: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    color:#838588 ;
+    line-height: 18px;
+}
+
+.topwrp{
+    position: fixed;
+   
+    top: 0;
+   width: 100%;
+   z-index: 999999;
+   
+    /* height: 200px; */
+}
+
+.topwrap {
+    background-image: url("../index-img/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    
+}
+.stas{
+    height: 160px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    background-color:transparent;
+    position: relative;
+    
+}
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+.menulist {
+    height: 30px;
+    width: 28px;
+    
+}
+.list {
+    display: none;
+    /* width: 100dvh; */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    top: 66px;
+    background-image: url('../index-img/minsen.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 9999;
+}
+
+.list li {
+    width: 80%;
+    height: 48px;
+    margin: 0 auto;
+    border-bottom: 1px solid blanchedalmond;
+}
+
+.list li a {
+    line-height: 48px;
+    font-size: 16px;
+}
+.menulist li {
+    height: 2px;
+    width:28px;
+    background-color: #fff;
+    position: absolute;
+    transform-origin: left center;
+    transition: .5s;
+}
+
+.menulist li:nth-child(1) {
+    top: 30px;
+}
+
+.menulist li:nth-child(2) {
+    top: 40px;
+}
+
+.menulist li:nth-child(3) {
+   top: 50px;
+}
+
+.logo a {
+    text-indent: -9999px;
+    display: block;
+    width: 211px;
+    height: 44px;
+    background-image: url("../index-img/logobook.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.losign {
+    display: none;  
+  
+}
+.losign li {
+    height: 40px;
+    width: 50px;
+    margin: 0 auto;
+    line-height: 40px;
+}
+.user{
+    width:70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a:hover{
+    color: #fff;
+    text-shadow: 1px 2px 3px #eee;
+}
+
+@media only screen{
+    @media (min-width:753px){
+        .wrapper {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .discri h2{
+            font-size: 50px;
+        }
+        .discri p{
+            font-size: 30px;
+        }
+        .scrolldown{
+            display: block;
+        }
+        .menulist {
+            display: none;
+        }
+        .wrap {
+            order: 2;
+            flex: auto;
+        }
+        .list {
+            display: flex;
+            width:500px;
+            height: 48px;
+            position: static;
+            justify-content: space-around;
+            background-image: none;
+        }
+        .list li {
+            border: none;
+            width: auto;
+             margin: 0;
+        }
+        a {
+            line-height: 66px;
+        }
+        .logo {
+            order: 1;
+        }
+        #user  {
+            display: none;
+        }
+        .user {
+            order: 3;
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        #minser{
+            font-size: 20px;
+        }
+        .user .losign {
+            display: flex; 
+            width: 200px;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .losign li {
+          
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .losign li:nth-child(2){
+            background-color:rgba(255, 255, 255, 0.3);
+        }
+        .losign li a{
+            line-height: 40px;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .losign li:hover{
+            background-color:#A295EA;
+        }
+    }
+}
+
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* 设置背景图片 */
+        body {
+            background-image: url("./index-img/city.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /*  设置整体外部容器*/
+        .wrap {
+            margin: 50px auto;
+            width: 60%;
+            height: 500px;
+            border: 1px solid #eee;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, .3);
+            border-radius: 20px;
+            background-color: rgb(212, 235, 253);
+            display: flex;
+            position: relative;
+        }
+
+        /* 设置左侧图片 */
+        img {
+            height: 500px;
+            width: 45%;
+            vertical-align: top;
+            border-radius: 20px 0 0 20px;
+        }
+
+        /* 注册表单居中 */
+        .user {
+
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* 设置logo图片 */
+        .logo {
+            background-image: url("index-img/图层\ 1.png");
+            height: 125px;
+            background-size: cover;
+            width: 130px;
+            margin: 0 auto;
+        }
+
+        /* 设置表单项列表 */
+        .form_list {
+            margin-top: 30px;
+            height: 370px;
+            display: flex;
+            flex-flow: column;
+
+            justify-content: space-around;
+        }
+
+        /* 设置input 样式 */
+        .item input {
+            height: 40px;
+            width: 200px;
+            border: 1px solid rgb(116, 116, 212);
+            border-radius: 10px;
+            padding: 0 20px;
+            outline: none;
+        }
+
+        /* 设置焦点表单样式 */
+        .item input:focus {
+            border: 1px solid rgb(24, 231, 110);
+            box-shadow: 1px 2px 3px springgreen;
+        }
+
+        /* 设置注册按钮 */
+        .submit button {
+            width: 240px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: rgb(141, 141, 241);
+            border: none;
+            outline: none;
+            margin-top: 30px;
+        }
+
+        /* 设置顶部文字样式 */
+        .login {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            color: #eee;
+            font-size: 15px;
+        }
+
+        /* 设置鼠标移入效果 */
+        a:hover {
+            color: rgb(98, 171, 231);
+            text-shadow: 1px 2px 2px rgb(141, 196, 241);
+        }
+
+        a {
+            color: rgb(178, 178, 211);
+            text-decoration: none;
+        }
+
+        .view {
+            font-size: 10px;
+        }
+
+        /* 响应式设计 */
+        @media only screen {
+            @media (max-width:756px) {
+                img {
+                    display: none;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <img src="./index-img/img.png" alt="logo">
+        <div class="login">
+            <span>已有账号？</span>
+            <a href="./logoin.html">立即登录</a>
+        </div>
+        <div class="user">
+            <form action="">
+                <div class=form_list>
+                    <div class="logo"></div>
+                    <div class="item">
+                        <input id="username" type="text" placeholder="请输入用户昵称" name='username'>
+                    </div>
+                    <div class="item">
+                        <input id="email" type="email" placeholder="请输入注册邮箱" name='username'>
+                    </div>
+                    <div class="item">
+                        <input id="password" type="password" placeholder="请输入登录密码" name='password'>
+                    </div>
+                    <div class="item">
+                        <input id="password1" type="password" placeholder="请再次输入密码" name="password">
+                    </div>
+                    <div class="view">
+                        <input id="rule" type="checkbox">
+                        <label for="rule">
+                            <span>我已仔细阅读并同意</span>
+                            <a href="javascript:;">《书源协议》</a>
+                        </label>
+                    </div>
+
+                </div>
+
+            </form>
+            <div class="submit">
+                <button id="submit" value="注册" name="submit">注册</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

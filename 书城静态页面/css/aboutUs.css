@@ -1,0 +1,135 @@
+html{
+    scroll-behavior: smooth;
+}
+.topone{
+    background-image: url("../abooutImg/ps.jpg");
+    height: 83vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.tits{
+    transform: translateY(150px);
+}
+.tits h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(197, 90, 54);
+    margin: 20px;
+    
+}
+.tits p{
+    font-size: 24px ;
+    font-weight: 400;
+    color: rgb(114, 101, 96);
+    line-height: 30px;
+}
+.banyop, .tap{
+    width: 95%;
+    margin: 0 auto;
+}
+.mytipe{
+    text-align: center;
+    height: 200px;
+}
+.mytipe h2{
+    font-size: 20px ;
+    font-weight: 600;
+    color: sandybrown;
+    margin: 30px 0;
+}
+.imgesd img{
+    width: 100%;  
+}
+.mytap li{
+    margin: 20px 0;
+    width: 100%;
+    height: 230px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 3px rgba(10, 7, 7, 0.582);
+    padding: 20px 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.mytap h2{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px;
+    
+}
+.mytap img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    animation: abily linear 3s infinite;
+}
+.pigs h2{
+    color: rgb(11, 11, 12);
+    font-size: 30px;
+    font-weight: 500;
+    margin: 30px;
+}
+.pigs p{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(15, 15, 15);   
+}
+.pigs{
+    text-align: center;
+
+}
+.footersd{
+    width: 100%;
+    height: 200px;
+    background-image: url("../index-img/bookindex3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    
+}
+.footersd a{
+    font-weight: 500;
+    font-size: 26px;
+    
+}
+
+
+@media only screen{
+    @media (min-width:649px){
+        .banyop{
+            display: flex;
+            width: 88%;
+            margin:30px auto;
+            box-shadow: 1px 2px 3px rgba(10, 7, 7, 0.582);
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .mytipe{
+            margin-top: 40px;
+            text-align: left;
+            height: 300px;
+        }
+        .mytipe h2{
+            font-size: 30px;
+        }
+        .tap{
+            
+            width: 88%;
+            margin: 30px auto;
+        }
+        .mytap li{
+            width: 360px;
+            height:250px ;
+        } 
+        .mytap{
+            display: flex;
+            justify-content: space-around;
+            flex-flow: wrap;
+        }
+    }
+
+}

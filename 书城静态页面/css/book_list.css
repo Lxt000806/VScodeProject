@@ -1,0 +1,404 @@
+
+html{
+    scroll-behavior: smooth;
+}
+/* 设置流派类别外部容器 */
+.menuli{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    width: 95%;
+    margin: 0 auto; 
+}
+/* 设置类别各个描述 */
+.destitle{
+    height: 100px;
+    width: 0;
+    background-image: linear-gradient(50deg,red,yellow,rgb(123, 199, 243),pink);
+    position: absolute;
+    bottom: 20px;
+    overflow: hidden;
+    transition: .4s all;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    text-indent: 2rem;
+    
+}
+/* 设置流派类别的列表项 */
+.menuli li{
+    width: 100%;
+    height:280px; 
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;   
+    
+}
+/* 设置列表中的图片 */
+.menuli li img{
+   width: 100%;
+   height: 280px;
+   transition: .4s all;  
+}
+/* 设置列表中的标题 */
+.description{
+    top:0;
+    width: 100%;
+    height:60px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .4);
+    text-align: center;  
+     
+}
+/* 设置标题的文字 */
+.description a{  
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 600;  
+}
+.menuli li:hover img{
+    transform: scale(1.2);
+}
+.menuli li:hover .destitle{
+    width: 100%;
+    
+}
+
+
+
+
+
+.wraptop{
+    width: 95%;
+    margin: 0 auto; 
+}
+.topbar img{
+    width: 100%;
+}
+.topbar li:hover .contentlist{
+    height: 200px;
+  
+   
+}
+
+.contentlist{
+    text-align: center;
+    height: 0px;
+    overflow: hidden;
+    transition: .5s all;
+}
+.contentlist h2{
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.contentlist a{
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+    background-color: #000;
+    height: 40px;
+    line-height: 40px;
+}
+/* 设置导航栏 */
+.various{
+    height: 80px;
+    width: 95%;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: mediumturquoise;
+    padding:0 20px ;
+    box-sizing:border-box;
+}
+/* 设置更多 加号*/
+ .various a{
+     display: block;
+     height: 60px;
+     width: 60px;
+     background-image: url("../Booklistimg/加号.png");
+     background-repeat: no-repeat;
+     background-size:30px 30px ;
+     background-position: center center;
+    
+ }
+ .various a:hover{
+    animation: more .5s;
+ }
+
+.footer{
+ 
+    width: 95%;
+    margin: 0 auto;
+}
+
+.books li{
+    position: relative;
+    height: 300px;
+    width:260px;
+    margin:20px 0;
+    
+}
+ .books img{
+    height: 100%;
+    width: 100%;
+}
+.font,.back{
+    height: 100%;
+    width:100%;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .4);
+}
+.font{
+    transform: perspective(800px) rotateY(0deg);
+}
+.back{
+    transform: perspective(800px) rotateY(-180deg);
+    text-align: center;
+    padding: 30px 10px;
+    box-sizing: border-box;
+}
+.back a{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(49, 72, 206);
+}
+.back a:hover{
+    color: rgb(236, 106, 113);
+}
+.back p{
+    text-indent: 2rem;
+    line-height:18px ;
+    font-size: 16px;
+}
+li:hover .back{
+    transform: perspective(800px) rotateY(0deg);
+}
+li:hover .font{
+    transform: perspective(800px) rotateY(180deg);
+}
+.books{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.easy{
+    width: 95%;
+    margin:0 auto;
+}
+.easy li{
+    height:500px;
+    width:100%;
+   text-align: center;
+    border-radius: 20px ;
+    margin-bottom: 20px; 
+    box-shadow: 1px 2px 3px #eee;  
+
+}
+.easy h2{
+    color: burlywood;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px;
+}
+.easy p{
+    font-size: 16px;
+    line-height: 18px;
+    margin: 20px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;      
+    overflow: hidden;
+}
+.easy a{
+    color: darkgoldenrod;
+}
+.easy a:hover{
+    color: darkorange;
+}
+.easy img{
+    width: 100%;
+
+    border-radius: 20px 20px 0 0;
+}
+.bos{
+    width: 100%;
+    height: 100px;
+    background-image:url("../index-img/bookindex1.jpg");
+}
+
+@media only screen{
+    @media (min-width:649px){
+        
+        .menuli li {
+            width: 300px;
+            height:300px; 
+            margin-bottom: 20px;   
+        }
+        .menuli li img{
+            width: 100%;
+            height: 300px;
+            
+            
+         }
+         
+        .menuli li:hover img{
+            transform: scale(1.2);
+        }
+      
+        .description{
+
+            width: 100%;
+            height:60px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .4);
+            text-align: center;   
+        }
+        .destitle{
+            height: 120px;
+        }
+        .wraptop{
+            width: 88%;
+            margin: 0 auto;
+        }
+        .topbar{
+    
+            display: flex;
+            justify-content: space-between;
+        }
+        .topbar li{
+           
+            position: relative;
+            margin: 10px;
+           
+        }
+      .topbar li #imgs{
+          width: 100%;
+          height: 100%;
+          display: block;
+         transition: .6s all;
+         clip-path: circle(500px at center 100px);
+      }
+       .topbar li:hover #imgs{
+           clip-path: circle(60px at center 100px);   
+       }
+        .contentlist{
+            position: absolute;
+           bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 49%;
+            text-align: center;
+            padding: 0 10px ;
+            box-sizing: border-box;
+            transition: 0.5s;
+            
+        }
+        .contentlist h2{
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .contentlist a{
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+            background-color: #000;
+            height: 40px;
+            line-height: 40px;
+        }
+        .contentlist a,.contentlist p,.contentlist h2{
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .5s;
+        }
+        .topbar li:hover .contentlist h2{
+            opacity: 1;
+            transform: translateY(0px);
+            transition-delay: .5s;
+        }
+        .topbar li:hover .contentlist p{
+            opacity: 1;
+            transform: translateY(0px);
+            transition-delay: .7s;
+        }
+        .topbar li:hover .contentlist a{
+            opacity: 1;
+            transform: translateY(0px);
+            transition-delay: .9s;
+        }
+        .various{
+            height: 90px;
+            width:88%;
+            margin: 0 auto;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: mediumturquoise;
+            padding:0 10px;
+            box-sizing:border-box;
+            border: 3px solid #bfa;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+        .various a{
+            background-size: 40px 40px ;
+        }
+        .footer{
+            margin: 0 auto;
+            width: 88%;
+        }
+        .books li{
+            height: 350px;
+            width:300px;
+        }
+        .easy img{
+            width: 643px;
+            height: 100%;
+            border-radius: 10px 0 0 10px ;
+        } 
+        .easy p{
+            text-align: left;
+            margin: 20px;
+            line-height: 20px;
+            color: #686161;
+           
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 9;
+            
+            overflow: hidden;
+        }
+        .easy li a{
+            color: rgb(235, 200, 106);
+        }
+        .easy li a:hover{
+            border-bottom: solid 1px #bfa;
+        }
+        .easy li{
+            display: flex;
+            height: 342px;
+            border-radius: 10px;
+            box-shadow: 1px 2px 3px #3333;
+        }
+        .footers{
+            width: 88%;
+            margin: 0 auto;
+        }
+    }
+ 
+
+}
