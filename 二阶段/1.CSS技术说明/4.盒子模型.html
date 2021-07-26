@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- html resetter 重置器（消毒剂）：用来消除各个浏览器样式之间的轻微差异 -->
+    <link rel="stylesheet" href="./normalize.css">
+    <style>
+        span{
+            border: 1px solid red ;
+            padding: 5px; /*padding:内边距*/
+            padding: 10px 12px ; /*上下、左右*/
+            padding: 10px 12px 13px; /*上、左右、下*/
+            border-width: 2px 3px 4px 5px; /*上、右、下、左*/
+            border-style: dotted;
+            margin-left: 10px; /*外边距*/
+        }
+
+        #circle{
+            width: 500px;
+            height: 500px;
+            border: 5px solid blue;
+            border-radius: 100px;
+        }
+        #circle:hover{
+            box-shadow: 5px 5px 5px #666;
+            cursor: pointer;
+            background-color: #fff;
+            /* 
+                1.背景图的优先级高于背景色
+                2.背景色的配置范围：background-clip，参数有border-box、padding-box、content-box          
+                3.背景图的铺设范围: background-origin，参数同上
+                4.背景图的重复模式：background-repeat
+                5.背景图初始位置：background-position
+                6.背景图的大小：background-size
+             */
+            background-clip: content-box;
+            background-origin: content-box;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: cover; /*背景图等比例放大，全部覆盖盒子模型*/
+            background-size: contain; /*背景图等比例放大，确保图片完整最大覆盖*/
+        }
+    </style>
+</head>
+<body>
+    <!-- span是一个inline元素，不是block元素，宽度和高度是无效的，宽高由内容决定，需要做显示模式的调整 -->
+    <span>星期一</span>
+    <span>星期二</span>
+    <span>星期三</span>
+    <span>星期四</span>
+    <span>星期五</span>
+
+    <div id="circle"></div>
+</body>
+</html>

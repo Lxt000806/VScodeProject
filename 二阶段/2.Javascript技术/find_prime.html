@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result>span{
+            display: inline-block;
+            width: 70px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h3>求某范围质数</h3>
+    <div>
+        <label>开始范围：</label>
+        <input type="text" id="begin">
+    </div>
+    <div>
+        <label>结束范围：</label>
+        <input type="text" id="end">
+    </div>
+    <div>
+        <button onclick="searchPrime()"> 查 找 </button>
+    </div>
+    <div id="result"></div>
+</body>
+<script>
+    function $(id){
+        return document.getElementById(id); //DOM API
+    }
+
+    function isPrime(num){
+
+        if(num<=1) return false;
+        if(num==2) return true;
+
+        var top = Math.floor(Math.sqrt(num));
+
+        for(var i=2;i<=top;i++)
+            if(num%i==0) break;
+        
+        return i==top+1;
+    }
+
+    function searchPrime(){
+        let begin = parseInt($("begin").value);
+        let end = parseInt($("end").value);
+        let count=0;
+        let htmlStr="";
+
+        console.log(`search scope : ${begin}-${end}`);
+
+        for(let num=begin;num<=end;num++){
+            if(isPrime(num)){
+                htmlStr += `<span>${num}</span>`;
+                count++;
+                if(count%10==0) htmlStr+="<br>";
+            }
+        }
+
+        $("result").innerHTML=htmlStr;
+    }
+
+    console.log(isPrime(23));
+    console.log(isPrime(123));
+    console.log(isPrime(231));
+</script>
+</html>

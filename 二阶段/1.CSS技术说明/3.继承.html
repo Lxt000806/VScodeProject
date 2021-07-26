@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: pink;
+        }
+        div:first-child{
+            color: red;
+            border: 1px solid blue;
+        }
+        div:nth-child(1)>span{
+            color: initial; /*走浏览器默认值*/
+            border: inherit; /*显示要求继承父元素的样式*/
+        }
+
+        /* 任何一个CSS样式，它的值一定有initial和inherit两个选项 */
+    </style>
+</head>
+<body>
+    <div>
+        abcdefg
+        <span>kkkkk</span>
+    </div>
+    <div>
+        xyzxyz
+    </div>
+    <!-- 
+        cascading style sheet
+        部分样式是可以被继承的，级联传递的
+     -->
+</body>
+</html>

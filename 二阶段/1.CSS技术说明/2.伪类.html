@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mydiv{
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            background-color: red;
+            /* alpha：透明度 */
+            color: rgba(red, green, blue, 1.0);
+        }
+
+        /* 伪类 */
+        #mydiv:hover{
+            background-color: blue;
+        }
+
+        tbody>tr:nth-child(2n){
+            color: white;
+            background-color: blue;
+        }
+        tbody>tr:nth-child(2n+1){
+            color: red;
+            background-color: yellow;
+        }
+        tbody>tr:hover{
+            cursor: pointer;
+            background-color:gray;
+            color:white;
+        }
+
+        /* 伪元素 */
+        div::before{
+            content: "this is";
+        }
+        div::after{
+            content: "- end";
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv"></div>
+    <h3>表格斑马纹效果</h3>
+    <table cellspacing="0" border="1" cellpadding="5" style="width:95%">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>身高</th>
+            </tr>
+        </thead>  
+        <tbody>
+            <tr>
+                <th>001</th>
+                <th>mary</th>
+                <th>13</th>
+                <th>160</th>
+            </tr>
+            <tr>
+                <th>002</th>
+                <th>mary</th>
+                <th>13</th>
+                <th>160</th>
+            </tr>
+            <tr>
+                <th>003</th>
+                <th>mary</th>
+                <th>13</th>
+                <th>160</th>
+            </tr>
+        </tbody>      
+    </table>
+    <!-- 
+        RGB三原色：
+            Red 0-255    00-FF
+            Green 0-255  00-FF
+            Blue 0-255   00-FF 
+            256*256*256=1670万种色彩的显示可能
+
+        两种颜色显示模式：
+            1.自发光物体  RGB
+            2.反光物体    CMYK
+     -->
+</body>
+</html>
