@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div 选择器（selector） */
+        div,span{
+            color: red; /*样式值对 property name：property value*/
+            font-size: 40px;
+            text-decoration: underline;
+        }
+
+        /* 无论什么标签，只要设置好class=u211，都将被选中；类选择器可以跨标签 */
+        .u211{
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .u985{
+            color: green;
+            font-size: 60px;
+
+        }
+
+        /*
+            样式表的混合运算：
+                1.在同等选择器级别的情况下，外挂的CSS文件的优先级比style标签嵌入到当前中的优先级低；
+                  也就是说，先比较选择器类型，然后再比较所在位置。
+                2.定义在后头的类选择器的优先级高于前面的
+                3.element selector < class selector < id selector < 内联样式（inline style）< !important声明
+        */
+
+        #id{
+            background-color: yellow;
+            color: red !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="u211">福州大学</div>
+    <div>福建工程学院</div>
+    <div class="u211 u985">清华大学</div>
+    <div>闽江学院</div>
+    <div class="u211 u985" id="host">厦门大学</div>
+    <span>高效会议组委会</span>
+
+    <!-- 
+        为什么需要样式表？：
+            内容和外观相混合，阅读内容困难
+            为做外观，额外创建了一个对象
+
+        在传统网页编程中，用于控制内容显示的标签和正文标签相混合，使程序员对网页代码的阅读产生阻力，
+        更多的查看影响显示效果的代码，而不能突出内容代码，导致网页代码不清晰。如果遇到显示风格的修改，将修改大量的页面数据。
+        随着网页应用的日益发展，网页越来越复杂，为了更容易的进行网页代码的阅读，一场内容和显示相分离的革命开始，CSS技术就在这样的环境下诞生。
+
+        使用样式表的优点：
+            a.内容和显示相分离，容易进行代码阅读，降低开发强度，有利于分工协作。
+            b.实现了类似函数的效果，可集中修改
+            c.容易实现分享，css文件可以跨网页分享
+            d.降低网络流量，提高网站负载
+            e.提高渲染速度
+            f.可以提供更多的显示控制能力
+
+
+     -->
+</body>
+</html>

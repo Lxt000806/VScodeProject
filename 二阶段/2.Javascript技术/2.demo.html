@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 修饰变量有3种方式：var，let const
+    var sum=0;
+    for(let i=1;i<=100;i++){
+        sum = sum + i ;
+    }
+    console.log(sum);
+
+    //第一版：javascript对象
+    var stu = new Object(); //类似于hashmap的结构，可以储存key-value键值对
+    stu.stuName='mary';
+    stu.stuAge=12;
+    stu.gotoSchool=function(){
+        console.log(`一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`);
+    }
+
+    //第二版
+    var stu = {
+        stuName:'mary',
+        stuAge:12,
+        gotoSchool:function(){
+            console.log(`一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`);
+        }
+    };
+    stu.gotoSchool();
+
+    //第三版
+    function createStudent(stuName,stuAge){
+
+        var stu = {};
+        stu.stuName=stuName;
+        stu.stuAge=stuAge;
+        stu.gotoSchool=function(){
+            console.log(`一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`);
+        }
+
+        return stu;
+    }
+    var stu1 = createStudent("mary",11);
+    var stu2 = createStudent("david",10);
+    stu1.gotoSchool();
+    stu2.gotoSchool();
+
+
+    //第四版
+    function Student(stuName,stuAge){
+
+        this.stuName=stuName;
+        this.stuAge=stuAge;
+        this.gotoSchool=function(){
+            console.log(`一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`);
+        };
+        this.toString=function(){
+            return `一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`;
+        };
+    }
+    var stu1 = new Student("mary",11);
+    console.log(stu1);
+    alert(stu1); // 打印一个对象相当于打印一个对象toString方法的返回值
+
+
+    //最新款 ES6
+    class Student1{
+        constructor(stuName,stuAge){
+            this.stuName=stuName;
+            this.stuAge=stuAge;
+        }
+
+        gotoSchool(){
+            console.log(`一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`);
+        }
+
+        toString(){
+            return `一个名字叫${this.stuName}的学生，年龄是${this.stuAge}`;
+        }
+    }
+    var stu1 = new Student1("mary",12);
+    stu1.gotoSchool();
+    alert(stu1);
+
+</script>
+</html>

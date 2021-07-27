@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.javascript语言特点（因为AJAX技术的存在，JS才有今天的辉煌）
+            寄居型的语言：以HTML为母体，不能脱离HTML而独立生存
+            脚本语言：
+                解释执行，不能被编译为可执行文件，执行效率较低，主要利用客户端CPU来执行。
+                语法松散，随意性大，弱类型，基于对象的编程语言（有对象，可定义和创建对象，但无继承，接口等面向对象语言特征）
+
+                js弱类型语言特征：
+                a.变量没有数据类型，变量空间可以保存任何类型的数据
+                b.js的数据类型：
+                    数字型（无int，float，double之分）
+                    字符串（无字符和字符串的概念，字符串可以用“或者”）
+                    布尔型
+                    对象型等。
+            主体运作思路
+     -->
+</body>
+<script>
+    // js数据类型有哪些？
+    //  1.number
+    //  2.string
+    //  3.boolean
+    //  4.object
+    //  5.null
+    //  6.undefined
+
+    var a=10; //js变量是没有数据类型的， 而数据是有类型的
+    
+    b="abcdefg";
+    b='xyz';
+    b=`有一个数字，它的值为${a}`; //template string 模板字符串
+    b=[1,2,3]; // 数组是对象，就是对象型
+    b=function(){};
+    b=undefined;
+
+    console.log(typeof(b));
+    console.log(b);
+
+    var girl = {username:"mary",userage:12};
+    console.log(`the girl name is ${girl.username},age is ${girl.age}`);
+</script>
+</html>

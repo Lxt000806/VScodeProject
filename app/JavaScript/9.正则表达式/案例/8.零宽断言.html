@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+ // 零宽前断言
+ console.log("我是中国人".replace(/我是(?=中国)/, "🍎🍎"))
+//零宽前断言取反
+console.log("我是中国人我是美国人".replace(/我是(?!中国)/, "🍎🍎"))
+//？：包含
+console.log("我是中国人".replace(/(?:中国)/, "🍎🍎"))
+//零宽后断言
+console.log("我是中国人".replace(/(?<=中国)人/, "🍎🍎"))
+//零宽后断言取反
+console.log("我是中国人我是美国人".replace(/(?<!中国)人/, "🍎🍎")) 
+
+</script>
+</html>

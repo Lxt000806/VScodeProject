@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        display: inline-block;
+    }
+    sapn:nth-last-child(2){
+        position: relative;
+        left: 50px;
+        top: 50px;
+    }
+    sapn:nth-child(3){
+        position: absolute;
+        left: 100px;
+        top: 100px;
+    }
+    #mydiv{
+        margin: 200px;
+        width: 200px;
+        height: 200px;
+        border: 10px solid blue;
+        position: relative;
+    }
+    #mydiv>span{
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+    }
+    #notice{
+        width: 250px;
+        height: 80px;
+        font-size: 16px;
+        border: 5px solid yellow;
+        background-color:red;
+        color: white;
+        text-align: center;
+        line-height: 80px;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+
+    }
+    #notice>span{
+        cursor: pointer;
+        font-size: 20px;
+        position: absolute;
+        top: -25px;
+        right: 10px;
+        
+    }
+    #notice>span:hover{
+        text-shadow: 3px 3px 3px #666;
+    }
+</style>
+<body>
+    <!-- 
+        定位方式：
+            static：从左向右排列，不够自动换行
+            relative:相对于默认位置（static）做偏移
+            fixed：相对于浏览器窗口
+            absolute：根据父容器的位置做偏移；
+            绝对定位法的参照物是父元素，但如果父元素没有被定位过（除static以外的所有定位），则无法作为
+            参照物，那么就需要找父元素的父元素，直到找到被定位过的祖先元素为止
+     -->
+     <span>星期1</span>
+     <span>星期2</span>
+     <span>星期3</span>
+     <span>星期4</span>
+     <span>星期5</span>
+     <div id="mydiv">
+         <span>Hello World</span>
+     </div>
+     <div id="notice">您已欠费，请速缴费！<span title="点击关闭" onclick="close_notice()">&times;</span></div>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+     <h3>hello</h3>
+</body>
+<script>
+    function close_notice(){
+        document.getElementById("notice").style.display="none"
+    }
+</script>
+</html>
